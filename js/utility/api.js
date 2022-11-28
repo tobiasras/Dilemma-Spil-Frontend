@@ -6,5 +6,7 @@ async function api(end_url, method, payload) {
       method: method,
       body: JSON.stringify(payload),
     });
+
+
     return await response.json();
   }
