@@ -14,15 +14,20 @@
     margin-top: 2vw;
 }
 .menu-button{
-  width: 300%;
+    display: flex;
+    justify-content: center;
+  width: 100%;
   background-color: aqua;
-  border: none;
+  border: 1px, solid, black;
   color: black;
-  padding: 4px 5px;
+  padding: 1vw 3vw;
   text-align: center;
   text-decoration: none;  
   font-size: auto;
   border-radius: 47%;
+}
+.menu-button:hover{
+    background-color: beige;
 }
 .main-header{
     margin-left: 13%;    
@@ -38,9 +43,31 @@
 }
 #content-header{
     background-color: white;
+    margin-left: 1vw;
 }
-.dilemma-info{
-    height: 40vw;
+.content-info{
+    clear: both;
+    height: 35vw;
     width: 70vw;
     background-color: aqua;
+    border-radius: 1%;
+}
+.content-buttons-div{
+    background-color: white;
+    
+}
+.content-button{
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    padding: 1vw;
+    padding-right: 2vw;
+    float: left;
+    border: none;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 8%;
+    margin: 0px;
+}
+.content-button:hover{
+    background-color: beige;
 }
