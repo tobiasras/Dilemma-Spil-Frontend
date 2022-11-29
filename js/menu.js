@@ -4,7 +4,7 @@ function renderGamePage() {
     renderGameIntro();
     
     resetPage();
-    
+    setColumnsTwo();
         if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -51,7 +51,7 @@ function resetPage() {
     gameBoxTwo.style.display = "none";
     game.style.display = "none";
     feedback.style.display = "none";
-    
+    setColumnsOne();
 }
 
 function renderGameIntro() {
@@ -59,7 +59,7 @@ function renderGameIntro() {
     let gameIntroDiv = document.getElementById("game-intro");
     let selectedButton = document.getElementById("game-intro-btn")
     selectedButton.style.backgroundColor = "#eeb71f";
-    gameIntroDiv.style.display = "block"
+    gameIntroDiv.style.display = "block";
 }
 
 function renderGameRules() {

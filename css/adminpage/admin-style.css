@@ -1,0 +1,46 @@
+.menu-box{
+    width: 12%;
+    background-color: blue;
+}
+.list-group{
+    width: 50%;
+    margin-left: 5%;
+    
+}
+.list-group-item{
+    background-color: blue;
+    border: none;
+    margin: 1vw;
+    margin-top: 2vw;
+}
+.menu-button{
+  width: 300%;
+  background-color: aqua;
+  border: none;
+  color: black;
+  padding: 4px 5px;
+  text-align: center;
+  text-decoration: none;  
+  font-size: auto;
+  border-radius: 47%;
+}
+.main-header{
+    margin-left: 13%;    
+}
+.main-box{
+    margin-left: 12%;
+}
+.content-box{
+    margin-top: 4vw;
+    margin-left: 3vw;
+    height: 100vw;
+    width: 80vw;    
+}
+#content-header{
+    background-color: white;
+}
+.dilemma-info{
+    height: 40vw;
+    width: 70vw;
+    background-color: aqua;
+}
