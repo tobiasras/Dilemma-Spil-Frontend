@@ -2,6 +2,10 @@
     --yellow: #eeb71f;
 }
 
+.w-33 {
+    width: 33%;
+}
+
 .bg-yellow {
     background-color: var(--yellow);
 }
@@ -104,4 +108,10 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+.dilemma-height{
+    height: 400px;
+
 }

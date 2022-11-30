@@ -6,19 +6,30 @@ class Lobby {
         let data = formCleaner.cleanFormData(formData);
 
         api("api/post/create/lobby", "POST", data).then(response => {
-
             const lobbyCode = response.lobbyCode;
+
+            const player = response.gameLobby;
+
+
+            sessionStorage.setItem("player", JSON.stringify(player));
 
             console.log("connected to: " + lobbyCode);
 
-            socket.join(lobbyCode);
+
+
+            // redirect to game html page
+            window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
+
+            //socket.join(lobbyCode);
+
+
+
         });
     }
 
     joinLobby(event) {
         event.preventDefault()
         let formData = $('#lobby-exist').serializeArray();
-
         let data = formCleaner.cleanFormData(formData);
 
         const player =
@@ -31,28 +42,32 @@ class Lobby {
 
         api("api/get/read/lobbyExist/" + data.lobbyID, "GET").then(response => {
             console.log(JSON.stringify(response.gameLobby));
-            const gameLobby = response.gameLobby
+            const gameLobby = response.gameLobby;
 
             if (response.gameLobby != null) {
-                socket.join(gameLobby.lobbyCode, player);
+                sessionStorage.setItem("player", JSON.stringify(player));
+
+                window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
+
+
+                //socket.join(gameLobby.lobbyCode, player);
 
                 console.log("connected to: " + gameLobby.lobbyCode);
             } else {
                 console.log("Gamelobby does not exist");
             }
-
-
         });
     }
 
-    fetchAllLobby(event){
+    fetchAllLobby(event) {
         event.preventDefault()
 
 
         api("api/get/all/lobby", "GET").then(response => {
             console.log(JSON.stringify(response));
-
         })
+
+
     }
 }
 
