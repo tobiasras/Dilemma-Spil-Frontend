@@ -71,3 +71,15 @@
 .content-button:hover{
     background-color: beige;
 }
+#dilemma-page{
+    display: none;
+}
+#package-page{
+    display: none;
+}
+#statistics-page{
+    display: none;
+}
+#feedback-page{
+    display: none;
+}
