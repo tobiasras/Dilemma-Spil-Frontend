@@ -7,14 +7,8 @@
 }
 
 #game-info-div {
-    width: auto;
-    height: 30vw;
-}
-
-#feedback-div{
-    width: 60vw;
-    height: 30vw;
-    
+    width: 500px;
+    height: 500px;
 }
 
 #game-info-div .game-desc {
@@ -40,11 +34,9 @@
 }
 
 .language-div {
-    margin-top: 1px;
-    margin-right: 1px;
     background-color: var(--yellow);
     padding: 0.25em;
-    
+    margin-right: -0.50em;
 }
 
 .flag-icon {
@@ -112,33 +104,4 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-
-.giant-box{
-
-    margin: 0px;
-    column-count: 2;
-}
-
-.menu-box{
-    width: 20%;
-}
-
-.main-box-container{
-    margin-top: 6%;
-    margin-left: 22%;
-    width: 80%;
-    column-count: 2;
-}
-
-#game-page{    
-    width: auto;
-}
-#lobby-page{
-    margin-left: 22%;
-    width: auto;
-}
-#feedback-page{
-    margin-left: 22%;
-    width: auto;
 }
