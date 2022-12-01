@@ -42,6 +42,7 @@ function renderLobbyPage() {
 }
 
 function resetPage() {
+    resetMainDiv();
     let lobby = document.getElementById("lobby-page");
     let game = document.getElementById("game-page");
     let gameBoxTwo = document.getElementById("game-page-box-two");
@@ -84,22 +85,12 @@ function resetGameInfoDiv() {
 
 function renderLoginForm() {
   resetPage();
-  resetMainDiv();
-  const mainDiv = document.getElementById("main-div");
+  const mainDiv = document.getElementById("main-box-container");
   let loginForm = document.createElement("div");
   loginForm.className = "col-10 h-100 m-0";
   loginForm.id = "login-page";
   loginForm.innerHTML = `
       <h2 class="d-inline">Admin Login</h2>
-      <div class="float-end language-div text-center">
-        <h5>Sprog</h5>
-        <img src="../images/denmark_flag.png" class="flag-icon" alt="">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <img src="../images/uk_flag.png" class="flag-icon" alt="">
-      </div>
       <form>
         <fieldset>
           <label for="username"></label>
