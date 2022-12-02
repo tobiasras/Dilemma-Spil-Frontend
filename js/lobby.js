@@ -16,13 +16,9 @@ class Lobby {
             console.log("connected to: " + lobbyCode);
 
 
-
-            // redirect to game html page
-            window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
-
-            //socket.join(lobbyCode);
-
-
+            // IF GAME NO WORD CHECK THAT URL MATCHES
+            // http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html
+            window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + lobbyCode;
 
         });
     }
@@ -47,7 +43,9 @@ class Lobby {
             if (response.gameLobby != null) {
                 sessionStorage.setItem("player", JSON.stringify(player));
 
-                window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
+                // IF GAME NO WORD CHECK THAT URL MATCHES
+                // http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html
+                window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
 
 
                 //socket.join(gameLobby.lobbyCode, player);

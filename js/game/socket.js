@@ -10,7 +10,6 @@ class Socket {
         }
 
         this.lobby = lobbyID
-
         this.url = "http://localhost:8080/game/" + this.lobby;
         this.socket = new SockJS(this.url);
         this.stompClient = Stomp.over(this.socket);
@@ -54,11 +53,6 @@ class Socket {
             } else {
                 this.stompClient.send('/app/game/' + this.lobby, {}, JSON.stringify(player));
             }
-
-
-
-
-
         });
 
 
