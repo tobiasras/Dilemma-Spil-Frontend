@@ -88,3 +88,9 @@
     margin-top: 1vw;    
     background-color: aqua;
 }
+#dilemma-form{
+    background-color: blue;
+}
+#hints-form{
+    background-color: red;
+}

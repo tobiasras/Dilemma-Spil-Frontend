@@ -54,7 +54,7 @@ function loadHints(dilemmaId){
 
         hintsList = [];
 
-        console.log(dilemmaIdHintsListMap.get(dilemmaId));
+        /* console.log(dilemmaIdHintsListMap.get(dilemmaId)); */
 
          /* console.log(dilemmaIdHintsListMap.size); */
     });
