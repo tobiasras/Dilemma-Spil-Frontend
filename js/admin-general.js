@@ -1,3 +1,4 @@
+
 function resetPage() {
     let dilemma = document.getElementById("dilemma-page");
     let packages = document.getElementById("package-page")
@@ -103,11 +104,12 @@ function renderEditDilemmaForm(id){
       '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
       + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
 
-     let dilemmaHints = '<div id="hints-form"><form><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
+     let dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ', ' + hintBody +')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
         + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
         + '"><br><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
         + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
-           
+        
+        /* comments here perhaps */
      let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
 
 
@@ -117,4 +119,7 @@ function renderEditDilemmaForm(id){
 
     $('#dilemma-info').append(dilemmaForm);
     $('#dilemma-info').append(dilemmaHints);
+   
+    hintBody = "";
+    
 }

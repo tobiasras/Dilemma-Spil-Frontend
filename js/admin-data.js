@@ -1,6 +1,7 @@
 var dilemmaList = [];
 var hintsList = [];
 const dilemmaIdHintsListMap = new Map();
+var hintBody;
 
 function loadData(){
 
@@ -57,8 +58,26 @@ function loadHints(dilemmaId){
         /* console.log(dilemmaIdHintsListMap.get(dilemmaId)); */
 
          /* console.log(dilemmaIdHintsListMap.size); */
+       
     });
-        
+            
+}
+
+function editHints(event, hintId, body){
+
+    event.preventDefault();
+
+    hintBody = {"id":hintId,
+    daForHint:$('#daHintFor').val(),
+    daAgainstHint:$('#daHintAgainst').val(),
+    enForHint:$('#enHintFor').val(),
+    enAgainstHint:$('#enHintAgainst').val()
+                    };
+
+    console.log(hintBody);
+
+    api("api/post/update/" + hintId + "/hintsdilemma", "post", hintBody);
+
     
 }
 
