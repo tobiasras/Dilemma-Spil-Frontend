@@ -70,7 +70,7 @@ function renderDilemmaList(){
 
     for(let i = 0; i < dilemmaList.length; i++){
 
-    let dilemmaNameLink = '<button class="dilemma-name-buttons" onclick="renderEditDilemmaForm('+ dilemmaList[i].id +')">'+ dilemmaList[i].daName + '</button>'
+    let dilemmaNameLink = '<button class="dilemma-name-buttons" onclick="renderEditDilemmaForm(' + dilemmaList[i].id +')">'+ dilemmaList[i].daName + '</button>'
 
     $('#dilemma-info').append(dilemmaNameLink);
 
@@ -78,31 +78,38 @@ function renderDilemmaList(){
 }
 
 
-
-function renderAddDilemma(){
-
-}
-
 function renderEditDilemmaForm(id){
     
     let currentDilemma;
+    let hint;
+
+     
 
     for(let i = 0; i < dilemmaList.length; i++){
 
         if(dilemmaList[i].id === id){
         currentDilemma = dilemmaList[i]; 
         }
-    }
+    };
 
+    console.log(dilemmaIdHintsListMap.size);
+
+    hint = dilemmaIdHintsListMap.get(currentDilemma.id);   
 
     $('#dilemma-info').empty();
 
     let dilemmaForm = '<div><form><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
      + currentDilemma.enName +'"><label for="daDescription">Dansk dilemma tekst</label><input   type="text" id="daDescription" value="' + currentDilemma.daDescription +
-      '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' + currentDilemma.enDescription + '"> <input type="submit"></form></div>'
+      '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
+      + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
 
-     
-
+     let dilemmaHints = '<div><form><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
+        + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
+        + '"><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
+        + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
+           
+     let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
 
     $('#dilemma-info').append(dilemmaForm);
+    $('#dilemma-info').append(dilemmaHints);
 }
