@@ -21,7 +21,7 @@ function renderDilemmas() {
     } else {
         x.style.display = "none";
     }
-    
+    renderDilemmaList();
 }
 
 function renderPackages() {
@@ -99,17 +99,17 @@ function renderEditDilemmaForm(id){
 
     
 
-    let dilemmaForm = '<div id="dilemma-form"><form><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
+    let dilemmaForm = '<div id="dilemma-form"><form onsubmit="editDilemma(event, ' + currentDilemma.id + ')"><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
      + currentDilemma.enName +'"><br><label for="daDescription">Dansk dilemma tekst</label><input type="text" id="daDescription" value="' + currentDilemma.daDescription +
       '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
       + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
 
-     let dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ', ' + hintBody +')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
+     let dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
         + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
         + '"><br><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
         + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
         
-        /* comments here perhaps */
+        /* comments here perhaps maybe better as a separate tab on the page */
      let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
 
 
@@ -120,6 +120,7 @@ function renderEditDilemmaForm(id){
     $('#dilemma-info').append(dilemmaForm);
     $('#dilemma-info').append(dilemmaHints);
    
+    /* clear previous uses */
     hintBody = "";
-    
+    dilemmaBody = "";
 }

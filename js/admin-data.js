@@ -2,8 +2,11 @@ var dilemmaList = [];
 var hintsList = [];
 const dilemmaIdHintsListMap = new Map();
 var hintBody;
+var dilemmaBody;
 
 function loadData(){
+
+dilemmaList = [];
 
 api("api/get/findall/dilemma", "get").then(response=> {
         
@@ -25,8 +28,6 @@ api("api/get/findall/dilemma", "get").then(response=> {
         loadHints(dilemmaId);
     }
     /* console.log(dilemmaList[0]); */
-
-    renderDilemmaList();
 
     return;
 });
@@ -63,8 +64,9 @@ function loadHints(dilemmaId){
             
 }
 
-function editHints(event, hintId, body){
+function editHints(event, hintId){
 
+    /* prevents reload of the page */
     event.preventDefault();
 
     hintBody = {"id":hintId,
@@ -74,10 +76,28 @@ function editHints(event, hintId, body){
     enAgainstHint:$('#enHintAgainst').val()
                     };
 
-    console.log(hintBody);
+    /* console.log(hintBody); */
 
     api("api/post/update/" + hintId + "/hintsdilemma", "post", hintBody);
-
     
+    /* to update data with newest changes */
+    loadData();
 }
 
+function editDilemma(event, dilemmaId){
+    
+    event.preventDefault();
+
+    dilemmaBody = {"id":dilemmaId,
+    daName:$('#daName').val(),
+    enName:$('#enName').val(),
+    daDescription:$('#daDescription').val(),
+    enDescription:$('#enDescription').val()
+                    };
+
+    /* console.log(dilemmaBody); */
+
+    api("api/post/update/" + dilemmaId + "/dilemma", "post", dilemmaBody);
+
+    loadData();
+}
