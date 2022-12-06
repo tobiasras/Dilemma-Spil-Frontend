@@ -84,6 +84,7 @@ function renderEditDilemmaForm(id){
     let currentDilemma;
     let hint;
 
+    /* removes previous rendered html */
     $('#dilemma-info').empty();
 
     for(let i = 0; i < dilemmaList.length; i++){
@@ -97,18 +98,17 @@ function renderEditDilemmaForm(id){
 
     hint = dilemmaIdHintsListMap.get(currentDilemma.id);   
 
-    
-
     let dilemmaForm = '<div id="dilemma-form"><form onsubmit="editDilemma(event, ' + currentDilemma.id + ')"><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
      + currentDilemma.enName +'"><br><label for="daDescription">Dansk dilemma tekst</label><input type="text" id="daDescription" value="' + currentDilemma.daDescription +
       '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
       + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
-
+    
+    if(hint !== undefined){
      let dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
         + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
         + '"><br><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
         + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
-        
+    }
         /* comments here perhaps maybe better as a separate tab on the page */
      let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
 
@@ -118,9 +118,28 @@ function renderEditDilemmaForm(id){
 
 
     $('#dilemma-info').append(dilemmaForm);
+
+    if(hint !== undefined){
     $('#dilemma-info').append(dilemmaHints);
-   
+    }
+
     /* clear previous uses */
     hintBody = "";
+    dilemmaBody = "";
+}
+
+function addNewDilemma(){
+
+    $('#dilemma-info').empty();
+
+    let addDilemmaForm = '<div><form onsubmit="createNewDilemma(event)"><label for="addDaName">Dansk navn</label> <input type="text" id="addDaName" value=""><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="">' +
+    '<br><label for="addDaDescription">Dansk dilemma tekst</label><input type="text" id="addDaDescription" value=""><label for="addEnDescription">Engelsk dilemma tekst</label><input type="text" id="addEnDescription" value="">'+
+    '<input type="submit" value="Opret"></form></div>' ;
+
+    $('#dilemma-info').css("column-count", 1);   
+
+    $('#dilemma-info').append(addDilemmaForm);
+
+
     dilemmaBody = "";
 }

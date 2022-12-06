@@ -101,3 +101,19 @@ function editDilemma(event, dilemmaId){
 
     loadData();
 }
+
+function createNewDilemma(event){
+
+    event.preventDefault();
+    
+    dilemmaBody = {
+    daName:$('#addDaName').val(),
+    enName:$('#addEnName').val(),
+    daDescription:$('#addDaDescription').val(),
+    enDescription:$('#addEnDescription').val()
+    };
+
+    api("api/post/create/dilemma", "post", dilemmaBody);
+
+    loadData();
+}
