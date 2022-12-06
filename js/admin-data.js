@@ -82,6 +82,7 @@ function editHints(event, hintId){
     
     /* to update data with newest changes */
     loadData();
+    userConfirmationButtonChange();
 }
 
 function editDilemma(event, dilemmaId){
@@ -100,6 +101,7 @@ function editDilemma(event, dilemmaId){
     api("api/post/update/" + dilemmaId + "/dilemma", "post", dilemmaBody);
 
     loadData();
+    userConfirmationButtonChange();
 }
 
 function createNewDilemma(event){
@@ -116,7 +118,7 @@ function createNewDilemma(event){
     api("api/post/create/dilemma", "post", dilemmaBody);
 
     loadData();
-   
+    userConfirmationButtonChange();
 }
 function createNewHints(event, dilemmaId){
 
@@ -132,5 +134,5 @@ function createNewHints(event, dilemmaId){
     api("api/post/create/"+ dilemmaId +"/hintsdilemma", "post", hintBody);
 
     loadData();
-
+    userConfirmationButtonChange();
 }

@@ -139,9 +139,9 @@ function addNewDilemma(){
 
     $('#dilemma-info').empty();
 
-    let addDilemmaForm = '<div><form onsubmit="createNewDilemma(event)"><label for="addDaName">Dansk navn</label> <input type="text" id="addDaName" value="" required><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="" required>' +
-    '<br><label for="addDaDescription">Dansk dilemma tekst</label><input type="text" id="addDaDescription" value="" required><label for="addEnDescription">Engelsk dilemma tekst</label><input type="text" id="addEnDescription" value="">'+
-    '<input class="dilemma-submit-button" type="submit" value="Opret"></form></div>' ;
+    let addDilemmaForm = '<div class="create-dilemma-form"><form onsubmit="createNewDilemma(event)"><label for="addDaName">Dansk navn</label> <input type="text" id="addDaName" value="" required><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="" required>' +
+    '<br><br><textarea placeholder="Dansk dilemma tekst" class="dilemma-input-text-field" name="addDaDescription" id="addDaDescription" value="" required></textarea><br><textarea class="dilemma-input-text-field" name="addEnDescription" id="addEnDescription" placeholder="Engelsk dilemma tekst" value="" required>'+
+    '</textarea><br><input class="dilemma-submit-button" type="submit" value="Opret"></form></div>' ;
 
     $('#dilemma-info').css("column-count", 1);   
 
@@ -173,7 +173,9 @@ function showDilemmaTextOnly(dilemmaId){
         }
     };
 
-    let dilemmaText = '<div>'+ currentDilemma.daName +'/'+ currentDilemma.enName +'</div><br><div>'+ currentDilemma.daDescription +'</div><br><div>'+ currentDilemma.enDescription +'</div>';
+    let dilemmaText = '<div class="pure-dilemma-description">'+ currentDilemma.daName +'/'+ currentDilemma.enName +'</div><br><div class="pure-dilemma-description">'+ currentDilemma.daDescription +'</div><br><div class="pure-dilemma-description">'+ currentDilemma.enDescription +'</div>';
+
+     
 
     return dilemmaText;
 

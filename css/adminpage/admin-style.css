@@ -94,3 +94,19 @@
 #hints-form{
     background-color: red;
 }
+.pure-dilemma-description{
+    margin: 0.5vw;
+
+}
+.dilemma-submit-button{
+    float: right;
+    margin-right: 1vw;
+}
+.dilemma-input-text-field{
+    width: 80%;
+    height: 8vw;
+    margin: 1vw;
+}
+.create-dilemma-form{
+    margin: 1vw;
+}
