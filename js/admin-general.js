@@ -102,13 +102,13 @@ function renderEditDilemmaForm(id){
     let dilemmaForm = '<div id="dilemma-form"><form onsubmit="editDilemma(event, ' + currentDilemma.id + ')"><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
      + currentDilemma.enName +'"><br><label for="daDescription">Dansk dilemma tekst</label><input type="text" id="daDescription" value="' + currentDilemma.daDescription +
       '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
-      + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
+      + currentDilemma.enDescription + '"> <input class="dilemma-submit-button" type="submit" value="Opdater"></form></div>' ;
     
     if(hint !== undefined){
      dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
         + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
         + '"><br><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
-        + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
+        + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input class="dilemma-submit-button" type="submit" value="Opdater"></form></div>' ;  
     }
 
     let hintsButton = '<div><form onsubmit="addHints('+ currentDilemma.id +')"><input type="submit" value="Tilføj hints"></form></div>';
@@ -139,9 +139,9 @@ function addNewDilemma(){
 
     $('#dilemma-info').empty();
 
-    let addDilemmaForm = '<div><form onsubmit="createNewDilemma(event)"><label for="addDaName">Dansk navn</label> <input type="text" id="addDaName" value=""><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="">' +
-    '<br><label for="addDaDescription">Dansk dilemma tekst</label><input type="text" id="addDaDescription" value=""><label for="addEnDescription">Engelsk dilemma tekst</label><input type="text" id="addEnDescription" value="">'+
-    '<input type="submit" value="Opret"></form></div>' ;
+    let addDilemmaForm = '<div><form onsubmit="createNewDilemma(event)"><label for="addDaName">Dansk navn</label> <input type="text" id="addDaName" value="" required><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="" required>' +
+    '<br><label for="addDaDescription">Dansk dilemma tekst</label><input type="text" id="addDaDescription" value="" required><label for="addEnDescription">Engelsk dilemma tekst</label><input type="text" id="addEnDescription" value="">'+
+    '<input class="dilemma-submit-button" type="submit" value="Opret"></form></div>' ;
 
     $('#dilemma-info').css("column-count", 1);   
 
@@ -154,8 +154,8 @@ function addHints(dilemmaId){
 
     $('#dilemma-info').empty();
 
-    let hintsForm = '<div><form onsubmit="createNewHints(event,'+ dilemmaId +')"><label for="createDaFor">Dansk hint +</label> <input type="text" id="createDaFor" value=""><label for="createDaAgainst">Dansk hint -</label> <input type="text" id="createDaAgainst" value="">'+
-    '<label for="createEnFor">Engelsk hint +</label> <input type="text" id="createEnFor" value=""><label for="createEnAgainst">Engelsk hint -</label> <input type="text" id="createEnAgainst" value=""><input type="submit" value="Tilføj"></form></div>';
+    let hintsForm = '<div><form onsubmit="createNewHints(event,'+ dilemmaId +')"><label for="createDaFor">Dansk hint +</label> <input type="text" id="createDaFor" value="" required><label for="createDaAgainst">Dansk hint -</label> <input type="text" id="createDaAgainst" value="" required>'+
+    '<label for="createEnFor">Engelsk hint +</label> <input type="text" id="createEnFor" value="" required><label for="createEnAgainst">Engelsk hint -</label> <input type="text" id="createEnAgainst" value="" required><input class="dilemma-submit-button" type="submit" value="Tilføj"></form></div>';
 
     $('#dilemma-info').append(showDilemmaTextOnly(dilemmaId));
     $('#dilemma-info').append(hintsForm);
@@ -176,5 +176,13 @@ function showDilemmaTextOnly(dilemmaId){
     let dilemmaText = '<div>'+ currentDilemma.daName +'/'+ currentDilemma.enName +'</div><br><div>'+ currentDilemma.daDescription +'</div><br><div>'+ currentDilemma.enDescription +'</div>';
 
     return dilemmaText;
+
+}
+
+function userConfirmationButtonChange(){
+
+    $('.dilemma-submit-button').hide();
+    $('.dilemma-submit-button').show(2000);
+
 
 }
