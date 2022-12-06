@@ -83,6 +83,7 @@ function renderEditDilemmaForm(id){
     
     let currentDilemma;
     let hint;
+    let dilemmaHints;
 
     /* removes previous rendered html */
     $('#dilemma-info').empty();
@@ -104,14 +105,17 @@ function renderEditDilemmaForm(id){
       + currentDilemma.enDescription + '"> <input type="submit" value="Opdater"></form></div>' ;
     
     if(hint !== undefined){
-     let dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
+     dilemmaHints = '<div id="hints-form"><form onsubmit="editHints(event, ' + hint.id + ')"><label for="daHintFor">Dansk hint +</label><input type="text" id="daHintFor" value="'+hint.daForHint+'"' +  hint.daForHint
         + '"><label for="daHintFor">Dansk hint -</label><input type="text" id="daHintAgainst" value="'+hint.daAgainstHint+'"' +  hint.daAgainstHint
         + '"><br><label for="daHintFor">Engelske hint +</label><input type="text" id="enHintFor" value="'+hint.enForHint+'"' +  hint.enForHint
         + '"><label for="daHintFor">Engelsk hint -</label><input type="text" id="enHintAgainst" value="'+hint.enAgainstHint+'"' + hint.enAgainstHint + '"><input type="submit" value="Opdater"></form></div>' ;  
     }
+
+    let hintsButton = '<div><form onsubmit="addHints('+ currentDilemma.id +')"><input type="submit" value="Tilføj hints"></form></div>';
+
+
         /* comments here perhaps maybe better as a separate tab on the page */
      let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
-
 
      /* style here */
      $('#dilemma-info').css("column-count", 1);     
@@ -121,6 +125,9 @@ function renderEditDilemmaForm(id){
 
     if(hint !== undefined){
     $('#dilemma-info').append(dilemmaHints);
+    }
+    else{
+        $('#dilemma-info').append(hintsButton); 
     }
 
     /* clear previous uses */
@@ -140,6 +147,34 @@ function addNewDilemma(){
 
     $('#dilemma-info').append(addDilemmaForm);
 
-
     dilemmaBody = "";
+}
+
+function addHints(dilemmaId){
+
+    $('#dilemma-info').empty();
+
+    let hintsForm = '<div><form onsubmit="createNewHints(event,'+ dilemmaId +')"><label for="createDaFor">Dansk hint +</label> <input type="text" id="createDaFor" value=""><label for="createDaAgainst">Dansk hint -</label> <input type="text" id="createDaAgainst" value="">'+
+    '<label for="createEnFor">Engelsk hint +</label> <input type="text" id="createEnFor" value=""><label for="createEnAgainst">Engelsk hint -</label> <input type="text" id="createEnAgainst" value=""><input type="submit" value="Tilføj"></form></div>';
+
+    $('#dilemma-info').append(showDilemmaTextOnly(dilemmaId));
+    $('#dilemma-info').append(hintsForm);
+
+}
+
+function showDilemmaTextOnly(dilemmaId){
+
+    let currentDilemma;
+
+    for(let i = 0; i < dilemmaList.length; i++){
+
+        if(dilemmaList[i].id === dilemmaId){
+        currentDilemma = dilemmaList[i]; 
+        }
+    };
+
+    let dilemmaText = '<div>'+ currentDilemma.daName +'/'+ currentDilemma.enName +'</div><br><div>'+ currentDilemma.daDescription +'</div><br><div>'+ currentDilemma.enDescription +'</div>';
+
+    return dilemmaText;
+
 }

@@ -116,4 +116,21 @@ function createNewDilemma(event){
     api("api/post/create/dilemma", "post", dilemmaBody);
 
     loadData();
+   
+}
+function createNewHints(event, dilemmaId){
+
+    event.preventDefault();
+
+    hintBody = {
+            "daForHint":$('#createDaFor').val(),
+            "enForHint":$('#createEnFor').val(),
+            "daAgainstHint":$('#createDaAgainst').val(),
+            "enAgainstHint":$('#createEnAgainst').val()
+    };
+
+    api("api/post/create/"+ dilemmaId +"/hintsdilemma", "post", hintBody);
+
+    loadData();
+
 }
