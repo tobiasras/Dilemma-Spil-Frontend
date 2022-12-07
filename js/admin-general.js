@@ -99,9 +99,10 @@ function renderEditDilemmaForm(id){
 
     hint = dilemmaIdHintsListMap.get(currentDilemma.id);   
 
-    let dilemmaForm = '<div id="dilemma-form"><form onsubmit="editDilemma(event, ' + currentDilemma.id + ')"><label for="daName">Dansk navn</label> <input type="text" id="daName" value="' + currentDilemma.daName + '"><label for="enName">Engelsk navn</label> <input type="text" id="enName" value="'
-     + currentDilemma.enName +'"><br><label for="daDescription">Dansk dilemma tekst</label><input type="text" id="daDescription" value="' + currentDilemma.daDescription +
-      '"> <label for="enDescription">Engelsk dilemma tekst</label><input type="text" id="enDescription" value="' 
+    let dilemmaForm = '<div id="dilemma-form"><form onsubmit="editDilemma(event, ' + currentDilemma.id + ')"><label for="daName">Dansk navn:  </label> <input type="text" id="daName" value="'
+     + currentDilemma.daName + '"><label for="enName">Engelsk navn:  </label> <input type="text" id="enName" value="'
+     + currentDilemma.enName +'"><br><div id="danish-dilemma-description"></div><label for="daDescription">Dansk dilemma tekst:  </label><input type="text" id="daDescription" value="' + currentDilemma.daDescription +
+      '"><br><div id="english-dilemma-description"></div><label for="enDescription">Engelsk dilemma tekst:  </label><input type="text" id="enDescription" value="' 
       + currentDilemma.enDescription + '"> <input class="dilemma-submit-button" type="submit" value="Opdater"></form></div>' ;
     
     if(hint !== undefined){
@@ -122,6 +123,9 @@ function renderEditDilemmaForm(id){
 
 
     $('#dilemma-info').append(dilemmaForm);
+    $('#danish-dilemma-description').append(currentDilemma.daDescription);
+    $('#english-dilemma-description').append(currentDilemma.enDescription);
+
 
     if(hint !== undefined){
     $('#dilemma-info').append(dilemmaHints);

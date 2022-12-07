@@ -110,3 +110,19 @@
 .create-dilemma-form{
     margin: 1vw;
 }
+#enDescription{
+    line-height: 1vw;
+    width: 50%;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
+    margin: 1vw;
+}
+#daDescription{
+    line-height: 1vw;
+    width: 50%;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
+    margin: 1vw;
+}
