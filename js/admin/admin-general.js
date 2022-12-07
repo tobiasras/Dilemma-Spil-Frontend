@@ -71,7 +71,7 @@ function renderDilemmaList(){
     
     $('#dilemma-info').empty();
 
-    $('#dilemma-info').css("column-count", 3);
+    $('#dilemma-info').css("column-count", 2);
 
     for(let i = 0; i < dilemmaList.length; i++){
 

@@ -32,6 +32,8 @@ api("api/get/findall/dilemma", "get").then(response=> {
     }
     /* console.log(dilemmaList[0]); */
 
+    renderDilemmaList();
+
     return;
 });
 

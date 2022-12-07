@@ -1,6 +1,6 @@
 .menu-box{
     width: 12%;
-    background-color: rgb(190, 190, 202);
+    background-color: rgb(236, 236, 247);
 }
 .list-group{
     width: 50%;
@@ -8,7 +8,7 @@
     
 }
 .list-group-item{
-    background-color: rgb(190, 190, 202);
+    background-color: rgb(236, 236, 247);
     border: none;
     margin: 1vw;
     margin-top: 2vw;
@@ -17,8 +17,8 @@
     display: flex;
     justify-content: center;
   width: 100%;
-  background-color: rgb(162, 170, 170);
-  border: 1px, solid, black;
+  background-color: rgb(184, 218, 212);
+  border: none; /* 0px, solid, black; */
   color: black;
   padding: 1vw 3vw;
   text-align: center;
@@ -59,7 +59,7 @@
 .content-button{
     display: flex;
     justify-content: center;
-    background-color: violet;
+    background-color: rgb(240, 203, 240);
     padding: 1vw;
     padding-right: 2vw;
     float: left;
@@ -130,4 +130,11 @@
     word-wrap: break-word; 
     word-break: break-word;
     margin: 1vw;
+}
+.package-dilemma{
+    margin-top: 1vw;
+    margin-left: 1vw;
+}
+.package-checkbox{
+    margin-left: 3px;
 }
