@@ -1,4 +1,4 @@
-class RenderCard{
+class RenderCard {
 
     /* JSON MODEL FOR CARD
 
@@ -16,21 +16,28 @@ class RenderCard{
 
     constructor(dilemmaJSON, isDanish) {
         this.dilemmaCard = this.filterCardLanguage(isDanish, dilemmaJSON);
+
+        console.log(dilemmaJSON);
     }
 
     // filters card for import information
-    filterCardLanguage(isDanish, uncleanDilemma){
+    filterCardLanguage(isDanish, uncleanDilemma) {
         let newJSON;
 
-        if (isDanish){
+
+        if (isDanish) {
             newJSON = {
                 name: uncleanDilemma.daName,
                 description: uncleanDilemma.daDescription,
+                hintFor: uncleanDilemma.hintsDilemmaModels[0].daForHint,
+                hintAgainst: uncleanDilemma.hintsDilemmaModels[0].daAgainstHint
             }
         } else {
             newJSON = {
                 name: uncleanDilemma.enName,
                 description: uncleanDilemma.enDescription,
+                hintFor: uncleanDilemma.hintsDilemmaModels[0].enForHint,
+                hintAgainst: uncleanDilemma.hintsDilemmaModels[0].enAgainstHint
             }
 
         }
@@ -38,8 +45,9 @@ class RenderCard{
         return newJSON;
     }
 
+
     // uses jquery
-    renderCard(appendTo){
+    renderCard(appendTo) {
         appendTo.empty();
 
         let header = $('<div></div>');
@@ -48,7 +56,7 @@ class RenderCard{
         header.append(h1);
 
         let body = $('<div></div>');
-        let bodyDescription = $('<div></div>').addClass('w-75');
+        let bodyDescription = $('<div></div>');
         let description = $('<p></p>').text(this.dilemmaCard.description);
 
 
@@ -60,25 +68,10 @@ class RenderCard{
         appendTo.append(body);
     }
 
-/*
-    <!-- HEADER -->
-    <div>
-        <h1>Dilemmacard 1:</h1>
-    </div>
-
-    <!-- BODY -->
-    <div>
-        <div class="w-75">
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-            </p>
-        </div>
-    </div>
- */
-
+    renderForText(){
+        $('for-text').text(this.dilemmaCard.hintFor);
+        $('against-text').text(this.dilemmaCard.hintAgainst);
+    }
 
 
 

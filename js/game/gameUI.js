@@ -1,22 +1,60 @@
-
-
 class GameUI {
 
-    displayGamePage(){
+    displayGamePage() {
+        $('#end-page').hide();
         $('#lobby-page').hide();
         $('#game-page').show();
 
     }
 
     displayLobbyPage() {
+        $('#end-page').hide();
         $('#game-page').hide();
         $('#lobby-page').show();
     }
 
 
+    displayEnd() {
+        $('#game-page').hide();
+        $('#lobby-page').hide();
+        $('#end-page').show();
 
-    // when start game is pressed
+    }
 
+    displayCommentModal() {
+        $('#modal-comment').modal('show');
+
+
+        $("#modal-comment-field").val('');
+
+        $("#dilemma-comment").submit(function (event) {
+
+            let formData = $('#dilemma-comment').serializeArray();
+            let data = formCleaner.cleanFormData(formData);
+
+            let card = game.currentCard;
+
+            let url = "api/post/create/" + card.id + "/commentsdilemma";
+
+            api(url, "POST", data).then(response => {
+            });
+
+            event.preventDefault();
+            $('#modal-comment').modal('hide');
+        });
+    }
+
+
+    hideHintsModal() {
+        $('#modal-hint').modal('hide');
+    }
+
+
+    displayHintsModal() {
+        $('#modal-hint').modal('show');
+
+        game.renderForAgainstText();
+    }
 
 
 }

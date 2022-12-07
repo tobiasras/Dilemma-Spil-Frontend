@@ -141,14 +141,15 @@ input:checked+.slider:before {
     column-count: 2;
 }
 
-#game-page{
-    width: auto;
+
+/* Bootstrap slider colors  */
+input[type=range]::-webkit-slider-thumb {
+    background: black;
 }
-#lobby-page{
-    margin-left: 22%;
-    width: auto;
+input[type=range]::-moz-range-thumb {
+    background: black;
 }
-#feedback-page{
-    margin-left: 22%;
-    width: auto;
+input[type=range]::-ms-thumb {
+    background: black;
 }
+/* Bootstrap slider colors  */

@@ -16,7 +16,7 @@ class Socket {
 
         $('#lobbyID-display').text(this.lobby);
 
-        //this.stompClient.debug = null; // SETS DEBUG MODE OFF
+        this.stompClient.debug = null; // SETS DEBUG MODE OFF
 
         this.stompClient.connect({}, (frame) => {
 
@@ -28,8 +28,13 @@ class Socket {
             this.stompClient.subscribe('/topic/next-card/' + this.lobby, (newCard) => {
                 const response  = JSON.parse(newCard.body);
 
-                game.nextRound(response.currentRound);
-                console.log(newCard)
+                if (response.gameIsDone){
+                    game.endGame();
+                } else {
+                    game.nextRound(response.currentRound);
+                }
+
+
             });
 
             this.stompClient.subscribe('/topic/start/game/' + this.lobby, (startGame) => {
@@ -41,7 +46,6 @@ class Socket {
                 const response  = JSON.parse(greeting.body);
 
                 const playerList = response.gameLobby.playerList;
-
                 playerDisplay.render(playerList);
             });
 

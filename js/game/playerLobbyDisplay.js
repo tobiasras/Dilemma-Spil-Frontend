@@ -1,6 +1,4 @@
 class PlayerLobbyDisplay {
-    constructor() {
-    }
 
     render(playerList){
         $('.player-display').remove();
@@ -21,10 +19,6 @@ class PlayerLobbyDisplay {
         });
     }
 
-    renderSinglePlayer(player){
-
-
-    }
 }
 
 const playerDisplay = new PlayerLobbyDisplay();

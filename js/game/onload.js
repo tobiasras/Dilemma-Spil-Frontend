@@ -1,7 +1,8 @@
 $( document ).ready(function() {
 
-    gameUI.displayLobbyPage();
+    alert(123);
 
+    gameUI.displayLobbyPage()
 
     const url = window.location.href;
 
@@ -24,11 +25,6 @@ $( document ).ready(function() {
         socket.join(values.lobbyID)
     }
 });
-
-
-
-
-
 
 
 function getValues(url){
