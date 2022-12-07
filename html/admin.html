@@ -17,9 +17,10 @@
   <script src="../js/utility/api.js"></script>
   <script src="../js/admin/admin-data.js"></script>
   <script src="../js/admin/admin-general.js"></script>
+  <script src="../js/admin/admin-game-packages.js"></script>
   
 </head>
-<body onload="loadData(); renderDilemmas();">
+<body onload="loadData(); loadPackages(); renderDilemmas();">
 
 <!-- Menu -->    
 <div class="menu-box h-100 position-fixed">
@@ -95,22 +96,15 @@ end base content box -->
 
   <div class="content-buttons-div m-0">
     <ul class="m-0">      
-        <button class="content-button" onclick="render()">Pakker</button>
+        <button class="content-button" onclick="renderPackageList()">Spil pakker</button>
       
-        <button class="content-button" onclick="render()">emne</button>
-      
-        <button class="content-button" onclick="render()">emne</button>
-      
-        <button class="content-button" onclick="render()">emne</button>
+        <button class="content-button" onclick="render()">Opret ny pakke</button>
+              
       </ul>
   </div>
 
-  <div class="content-info" id="package-info">
-    
-    tekstasdads
+  <div class="content-info" id="package-info">     </div>
 
-
-  </div>
 </div>
 
 <!-- Statistics -->

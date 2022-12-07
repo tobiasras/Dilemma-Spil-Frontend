@@ -1,5 +1,8 @@
 var dilemmaList = [];
 var hintsList = [];
+var packageList = [];
+var packageDilemmaList = [];
+const packageDilemmaDaNameMap = new Map();
 const dilemmaIdHintsListMap = new Map();
 var hintBody;
 var dilemmaBody;
@@ -33,6 +36,63 @@ api("api/get/findall/dilemma", "get").then(response=> {
 });
 
 }
+
+function loadPackages(){
+
+    packageList = [];
+
+    api("api/get/findall/cardpackage", "get",).then(response =>{
+
+        const packagePromise = response;
+
+        for(let i = 0; i < packagePromise.length; i++){
+
+            packageList.push(packagePromise[i]);
+        }
+
+        
+
+        for(let x = 0; x < packageList.length; x++){
+
+            loadPackageContent(packageList[x].id);
+                       
+        }
+
+        /* console.log(packageList.length); */
+
+    })
+
+}
+
+function loadPackageContent(packageId){
+    
+    api("api/get/alldilemmas/"+ packageId +"/cardpackage").then(response =>{
+
+        const promise = response;
+
+        for(let i = 0; i < promise.length; i++){
+
+            packageDilemmaList.push(promise[i]);
+
+        }
+
+        packageDilemmaDaNameMap.set(packageId, packageDilemmaList);
+
+        /*
+        for(let y = 0; y < packageDilemmaList.length; y++){    
+
+            console.log(packageDilemmaList[y]);
+
+
+        packageDilemmaDaNameMap.set(packageId, packageDilemmaList[y]);
+        } */
+           /* console.log(packageDilemmaList.length); */
+    
+           packageDilemmaList = [];
+        })
+        
+}
+
 
 function loadHints(dilemmaId){
          

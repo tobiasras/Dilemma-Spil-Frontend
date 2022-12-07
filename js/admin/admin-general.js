@@ -35,6 +35,10 @@ function renderPackages() {
         x.style.display = "none";
     }
     
+    /* console.log("before render packagelist"); */
+
+    renderPackageList();
+
 }
 
 function renderStatistics() {
@@ -115,8 +119,9 @@ function renderEditDilemmaForm(id){
     let hintsButton = '<div><form onsubmit="addHints('+ currentDilemma.id +')"><input type="submit" value="Tilføj hints"></form></div>';
 
 
-        /* comments here perhaps maybe better as a separate tab on the page */
+        /* comments here perhaps maybe better as a separate tab on the page 
      let commentsForm = '<div><form><label for="comments">Kommentarer</label><input type="text" id="comments" value=""' ;
+    */
 
      /* style here */
      $('#dilemma-info').css("column-count", 1);     
