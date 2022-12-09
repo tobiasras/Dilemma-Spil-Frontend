@@ -1,3 +1,5 @@
+var dilemmaListToBeSpliced = [];
+
 function renderPackageList(){
     
     $('#package-info').empty();
@@ -32,12 +34,10 @@ function renderPackageContent(packageId){
         }
     }
 
-    let packageIncludes = '<div class="package-dilemma">'+ currentPackage.daName +' indeholder :<form onsubmit=""><div id="package-added-dilemmas">'+
-    '</div><button class="dilemma-submit-button" type="submit">Fjern</button></form></div>'
+    let packageIncludes = '<div class="package-dilemma">'+ currentPackage.daName +' indeholder :<form onsubmit="removingDilemmasFromPackage(event, '+ currentPackage.id +'"><div id="package-added-dilemmas">'+
+    '</div><button class="dilemma-submit-button" type="submit">Fjern</button></form>'
 
     $('#package-info').append(packageIncludes);
-
-
 
 
     dilemmas = packageDilemmaDaNameMap.get(packageId);
@@ -51,35 +51,55 @@ function renderPackageContent(packageId){
               
     }
 
-        let packageMissing = '<div class="package-dilemma">'+ currentPackage.daName +' kunne også indeholde :</div><form onsubmit=""><div id="package-non-added-dilemmas">'+
-        '</div><button class="dilemma-submit-button" type="submit">Tilføj</button></form></div>'
+        let packageMissing = '<div class="package-dilemma">'+ currentPackage.daName +' kunne også indeholde :</div><form onsubmit="addingDilemmasToPackage(event, '+ currentPackage.id +')"><div id="package-non-added-dilemmas">'+
+        '</div><button class="dilemma-submit-button" type="submit">Tilføj</button></form>'
 
         $('#package-info').append(packageMissing);    
         
-      
-        /*
+
+        /* all of this just to show non added dilemmas */
+        
+        dilemmaListToBeSpliced = [];
+
         for(let i = 0; i < dilemmaList.length; i++){
 
+            dilemmaListToBeSpliced.push(dilemmaList[i]);
+
+        }
+        
+        for(let i = 0; i < dilemmaList.length; i++){
             
             let checkId = dilemmaList[i].id;
             
-            console.log(dilemmaList[i]);
-
             for(let x = 0; x < dilemmas.length; x++){
                 
-                if(checkId !== dilemmas[x].id){
+                if(checkId === dilemmas[x].id){
                     
-                    let dilemmaNameLink = '<button class="dilemma-name-buttons">'+ dilemmaList[i].daName + '</button>'
-        
-                    $('#package-non-added-dilemmas').append(dilemmaNameLink);
+                    for(let i = 0; i < dilemmaListToBeSpliced.length; i++){
 
-                    dilemmaList.splice(i, 1);
-                    console.log(dilemmas.splice((x), 1));
+                        if(dilemmaListToBeSpliced[i].id === checkId){
+
+                            dilemmaListToBeSpliced.splice(i, 1);       
+
+                        }
+
+                    }
+
                 }
 
             }
                    
         }
-        */
         
+        for(let i = 0; i < dilemmaListToBeSpliced.length; i++){
+
+        let dilemmaNameLink = '<button class="dilemma-name-buttons">'+ dilemmaListToBeSpliced[i].daName + '</button><input class="package-checkbox" '+
+        ' type="checkbox" id="packageIdToAdd'+ dilemmaListToBeSpliced[i].id +'" name="dilemmaToAdd" value="'+ dilemmaListToBeSpliced[i].id + '">'
+        
+            $('#package-non-added-dilemmas').append(dilemmaNameLink);
+            
+        }
+
+        /* end of showing non added dilemmas */ 
+
 }

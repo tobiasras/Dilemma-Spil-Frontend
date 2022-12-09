@@ -198,3 +198,35 @@ function createNewHints(event, dilemmaId){
     loadData();
     userConfirmationButtonChange();
 }
+
+function addingDilemmasToPackage(event, packageId){
+
+    event.preventDefault();
+    
+    for(let i = 0; i < dilemmaListToBeSpliced.length; i++){
+
+
+      if($('#packageIdToAdd' + dilemmaListToBeSpliced[i].id).is(":checked") == true){
+
+        /* console.log($('#packageIdToAdd' + dilemmaListToBeSpliced[i].id).val()); */
+
+        api("api/post/adddilemma/"+ dilemmaListToBeSpliced[i].id + "/"+ packageId +"/cardpackage", "post");
+
+
+        
+      }
+
+    }
+
+    loadPackageContent(packageId);
+
+    renderPackageContent(packageId);
+}
+
+function removingDilemmasFromPackage(event, packageId){
+
+    event.preventDefault();
+
+    
+
+}
