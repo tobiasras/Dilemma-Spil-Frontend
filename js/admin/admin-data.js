@@ -210,13 +210,11 @@ function addingDilemmasToPackage(event, packageId){
 
         /* console.log($('#packageIdToAdd' + dilemmaListToBeSpliced[i].id).val()); */
 
-        api("api/post/adddilemma/"+ dilemmaListToBeSpliced[i].id + "/"+ packageId +"/cardpackage", "post");
-
-
-        
+        api("api/post/adddilemma/"+ dilemmaListToBeSpliced[i].id + "/" + packageId +"/cardpackage", "post");
+                
       }
 
-    }
+    };
 
     loadPackageContent(packageId);
 
@@ -227,6 +225,34 @@ function removingDilemmasFromPackage(event, packageId){
 
     event.preventDefault();
 
+    for(let i = 0; i < dilemmas.length; i++){
+
+        if($('#dilemmaIdToRemove' + dilemmas[i].id).is(":checked") == true){
+            
+          /*  console.log(dilemmas[i].id + " " + packageId); */
+
+            api("api/post/removedilemma/" + dilemmas[i].id + "/" + packageId + "/cardpackage", "post");
+            
+            
+        }
+                
+    };
     
+    let promise = new Promise (function(resolve, reject){
+
+        
+        loadPackageContent(packageId);
+        
+        
+        
+    });
+
+
+    promise.then( 
+
+        
+        function(done){renderPackageContent(packageId)},
+        function(error){console.log("error")}
+    );
 
 }

@@ -1,4 +1,5 @@
 var dilemmaListToBeSpliced = [];
+var dilemmas = []; 
 
 function renderPackageList(){
     
@@ -18,9 +19,10 @@ function renderPackageList(){
 function renderPackageContent(packageId){
 
     let currentPackage;
-    let dilemmas;  
-    
+        
     $('#package-info').empty();
+    $('#package-added-dilemmas').empty();
+    $('#package-non-added-dilemmas').empty();
 
     $('#package-info').css("column-count", 1);
 
@@ -33,26 +35,30 @@ function renderPackageContent(packageId){
         
         }
     }
-
-    let packageIncludes = '<div class="package-dilemma">'+ currentPackage.daName +' indeholder :<form onsubmit="removingDilemmasFromPackage(event, '+ currentPackage.id +'"><div id="package-added-dilemmas">'+
-    '</div><button class="dilemma-submit-button" type="submit">Fjern</button></form>'
-
-    $('#package-info').append(packageIncludes);
-
+    
+    dilemmas = [];
 
     dilemmas = packageDilemmaDaNameMap.get(packageId);
 
+    let packageIncludes = '<div class="package-dilemma">'+ currentPackage.daName +' indeholder :</div><form onsubmit="removingDilemmasFromPackage(event, '
+    + currentPackage.id +')"><div id="package-added-dilemmas"></div><button class="dilemma-submit-button" type="submit">Fjern</button></form>'
+
+    $('#package-info').append(packageIncludes);    
+
+    /* console.log(dilemmas.length); */
+
     for(let i = 0; i < dilemmas.length; i++){
         
-        let packageContent = '<button class="package-dilemma" >'+ dilemmas[i].daName + '</button><input class="package-checkbox" type="checkbox" name="packageIdToRemove" '+
+        let packageContent = '<button class="package-dilemma" >'+ dilemmas[i].daName + '</button><input class="package-checkbox" '+
+        ' type="checkbox" id="dilemmaIdToRemove'+ dilemmas[i].id +'" name="dilemmaToRemove" '+
         ' value="'+ dilemmas[i].id + '">'
         
         $('#package-added-dilemmas').append(packageContent);
               
     }
 
-        let packageMissing = '<div class="package-dilemma">'+ currentPackage.daName +' kunne også indeholde :</div><form onsubmit="addingDilemmasToPackage(event, '+ currentPackage.id +')"><div id="package-non-added-dilemmas">'+
-        '</div><button class="dilemma-submit-button" type="submit">Tilføj</button></form>'
+        let packageMissing = '<div class="package-dilemma">'+ currentPackage.daName +' kunne også indeholde :</div><form onsubmit="addingDilemmasToPackage(event, '
+        + currentPackage.id +')"><div id="package-non-added-dilemmas"></div><button class="dilemma-submit-button" type="submit">Tilføj</button></form>'
 
         $('#package-info').append(packageMissing);    
         
@@ -102,4 +108,6 @@ function renderPackageContent(packageId){
 
         /* end of showing non added dilemmas */ 
 
+
+      
 }
