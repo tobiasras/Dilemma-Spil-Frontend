@@ -259,3 +259,13 @@ function removingDilemmasFromPackage(event, packageId){
 
     renderPackageContent(packageId);
 }
+
+function deletePackage(packageId){
+
+    api("api/post/delete/"+ packageId +"/cardpackage", "post");
+    
+    loadPackages();
+
+    renderPackages();
+
+}

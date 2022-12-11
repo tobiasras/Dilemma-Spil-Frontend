@@ -138,3 +138,10 @@
 .package-checkbox{
     margin-left: 3px;
 }
+#delete-package-div{
+    margin-top: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+    position: sticky;
+    
+}
