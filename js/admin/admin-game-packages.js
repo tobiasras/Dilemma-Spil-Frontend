@@ -111,3 +111,20 @@ function renderPackageContent(packageId){
 
       
 }
+
+
+function createNewPackage(){
+
+    $('#package-info').empty();
+    
+    let createPackageForm = '<div class="create-package-form"><form onsubmit="addedNewPackage(event)"><label for="addDaName">Dansk navn</label> '+
+    '<input type="text" id="addDaName" value="" required><label for="addEnName">Engelsk navn</label> <input type="text" id="addEnName" value="" required>'+
+    '<br><input class="dilemma-submit-button" type="submit" value="Opret"></input>';
+
+    $('#package-info').css("column-count", 1);   
+
+    $('#package-info').append(createPackageForm);
+    
+    
+    newPackageBody = "";
+}

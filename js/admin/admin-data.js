@@ -6,6 +6,7 @@ const packageDilemmaDaNameMap = new Map();
 const dilemmaIdHintsListMap = new Map();
 var hintBody;
 var dilemmaBody;
+var newPackageBody;
 
 function loadData(){
 
@@ -182,6 +183,22 @@ function createNewDilemma(event){
     loadData();
     userConfirmationButtonChange();
 }
+
+function addedNewPackage(event){
+
+    event.preventDefault();
+
+    newPackageBody = {
+        daName:$('#addDaName').val(),
+        enName:$('#addEnName').val()
+    };
+
+    api("api/post/create/cardpackage", "post", newPackageBody);
+
+    loadPackages();
+    userConfirmationButtonChange();
+}
+
 function createNewHints(event, dilemmaId){
 
     event.preventDefault();
@@ -237,22 +254,8 @@ function removingDilemmasFromPackage(event, packageId){
         }
                 
     };
-    
-    let promise = new Promise (function(resolve, reject){
-
         
-        loadPackageContent(packageId);
-        
-        
-        
-    });
+    loadPackageContent(packageId);
 
-
-    promise.then( 
-
-        
-        function(done){renderPackageContent(packageId)},
-        function(error){console.log("error")}
-    );
-
+    renderPackageContent(packageId);
 }
