@@ -293,3 +293,12 @@ function loadCommentsFromDilemma(dilemmaId){
     })       
 }
 
+function deleteCommentFromDilemma(commentId){
+
+    console.log(commentId);
+
+    api("api/post/delete/" + commentId + "/commentsdilemma", "post");
+
+    loadData();
+    
+}

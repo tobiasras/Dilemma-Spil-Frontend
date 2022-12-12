@@ -228,7 +228,7 @@ function renderComments(dilemmaId){
 
     for(let i = 0; i < commentList.length; i++){
 
-    let comments = '<div>'+ commentList[i].comments +'</div>';
+    let comments = '<div class="dilemma-comments">'+ commentList[i].comments +'<form onsubmit="deleteCommentFromDilemma('+ commentList[i].id +')"><input class="delete-comment-button" type="submit" value="Slet"></form></div>';
 
     $('#comment-info').append(comments);    
     }
@@ -238,6 +238,6 @@ function renderComments(dilemmaId){
 
 function renderGeneralFeedback(){
 
-    
+
 
 }

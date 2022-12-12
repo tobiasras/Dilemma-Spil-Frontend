@@ -147,3 +147,9 @@
     position: sticky;
     
 }
+.delete-comment-button{
+    float: right;
+}
+.dilemma-comments{
+    margin: 1vw;
+}
