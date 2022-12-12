@@ -1,5 +1,5 @@
 :root {
-    --yellow: #eeb71f;
+    --yellow: #F0D757;
 }
 
 .w-33 {
@@ -9,6 +9,8 @@
 .bg-yellow {
     background-color: var(--yellow);
 }
+
+
 
 #game-info-div {
     width: auto;
@@ -134,13 +136,15 @@ input:checked+.slider:before {
     width: 20%;
 }
 
+/*
+
 .main-box-container{
     margin-top: 6%;
     margin-left: 22%;
     width: 80%;
     column-count: 2;
 }
-
+*/
 
 /* Bootstrap slider colors  */
 input[type=range]::-webkit-slider-thumb {
@@ -151,5 +155,9 @@ input[type=range]::-moz-range-thumb {
 }
 input[type=range]::-ms-thumb {
     background: black;
+}
+
+.active{
+    background: white !important;
 }
 /* Bootstrap slider colors  */
