@@ -68,6 +68,8 @@ function renderFeedback() {
     } else {
         x.style.display = "none";
     }   
+
+    renderGeneralFeedback();
 }
 
 function renderDilemmaList(){
@@ -85,6 +87,20 @@ function renderDilemmaList(){
     }
 }
 
+function renderDilemmasForFeedback(){
+    
+    $('#feedback-info').empty();
+
+    $('#feedback-info').css("column-count", 1);
+
+    for(let i = 0; i < dilemmaList.length; i++){
+
+    let dilemmaNameLink = '<button class="dilemma-name-buttons" onclick="renderComments(' + dilemmaList[i].id +')">'+ dilemmaList[i].daName + '</button>'
+
+    $('#feedback-info').append(dilemmaNameLink);
+
+    }
+}
 
 function renderEditDilemmaForm(id){
     
@@ -187,10 +203,7 @@ function showDilemmaTextOnly(dilemmaId){
 
     let dilemmaText = '<div class="pure-dilemma-description">'+ currentDilemma.daName +'/'+ currentDilemma.enName +'</div><br><div class="pure-dilemma-description">'+ currentDilemma.daDescription +'</div><br><div class="pure-dilemma-description">'+ currentDilemma.enDescription +'</div>';
 
-     
-
     return dilemmaText;
-
 }
 
 function userConfirmationButtonChange(){
@@ -198,5 +211,33 @@ function userConfirmationButtonChange(){
     $('.dilemma-submit-button').hide();
     $('.dilemma-submit-button').show(2000);
 
+
+}
+
+function renderComments(dilemmaId){
+
+    /* console.log(dilemmaId); */
+
+    $('#feedback-info').empty();
+
+    let commentsBox = '<div class="comments-box" id="comment-info"></div>';
+
+    $('#feedback-info').append(commentsBox);
+    
+    var commentList = dilemmaIdCommentsMap.get(dilemmaId);
+
+    for(let i = 0; i < commentList.length; i++){
+
+    let comments = '<div>'+ commentList[i].comments +'</div>';
+
+    $('#comment-info').append(comments);    
+    }
+
+    commentList = "";
+}
+
+function renderGeneralFeedback(){
+
+    
 
 }

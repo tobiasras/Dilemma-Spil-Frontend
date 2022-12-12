@@ -4,9 +4,7 @@ class Lobby {
         let formData = $('#create-lobby').serializeArray();
 
         let data = formCleaner.cleanFormData(formData);
-
-
-
+       
 
         api("api/post/create/lobby" +  "?cardPackageID=1", "POST", data).then(response => {
             const lobbyCode = response.lobbyCode;
@@ -22,8 +20,8 @@ class Lobby {
             // IF GAME NO WORD CHECK THAT URL MATCHES
 
             //
-            //window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + lobbyCode;
-            window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
+            window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + lobbyCode;
+            // window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
 
 
         });
@@ -51,9 +49,9 @@ class Lobby {
                 sessionStorage.setItem("player", JSON.stringify(player));
 
                 // IF GAME NO WORD CHECK THAT URL MATCHES
-                // window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
+                 window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
 
-                window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
+                // window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
 
 
                 //socket.join(gameLobby.lobbyCode, player);
@@ -71,7 +69,6 @@ class Lobby {
         api("api/get/all/lobby", "GET").then(response => {
             console.log(JSON.stringify(response));
         })
-
 
     }
 }

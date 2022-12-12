@@ -18,6 +18,7 @@
     <!-- local -->
     <script src="../js/utility/api.js"></script>
   <script src="../js/menu.js" defer></script>
+  <script src="../js/lobby.js" defer></script>
 </head>
 
 <body>
@@ -118,9 +119,10 @@
     <!-- Content box 1 redundant lobby-->
     <div class="h-100 m-0" id="lobby-page">
       <h2 class="d-inline">Lobby</h2>
-
-      <button>Opret spil</button>
-      <button>Tilsut til lobby</button>
+      <form>
+      <button onclick="lobby.createLobby(event)">Opret spil</button>
+      <button onclick="lobby.joinLobby(event)">Tilslut til lobby</button>
+    </form>
     </div>
     
   </div>

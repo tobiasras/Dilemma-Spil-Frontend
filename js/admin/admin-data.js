@@ -2,8 +2,10 @@ var dilemmaList = [];
 var hintsList = [];
 var packageList = [];
 var packageDilemmaList = [];
+var dilemmaComments = [];
 const packageDilemmaDaNameMap = new Map();
 const dilemmaIdHintsListMap = new Map();
+const dilemmaIdCommentsMap = new Map();
 var hintBody;
 var dilemmaBody;
 var newPackageBody;
@@ -17,8 +19,7 @@ api("api/get/findall/dilemma", "get").then(response=> {
     /* console.log(JSON.stringify(response)) */   
 
     const dilemmaPromise = response;
-
-   
+  
 
     for(let i = 0; i < dilemmaPromise.length; i++){
 
@@ -30,7 +31,10 @@ api("api/get/findall/dilemma", "get").then(response=> {
         dilemmaId = dilemmaList[i].id;
     
         loadHints(dilemmaId);
+        loadCommentsFromDilemma(dilemmaId);
     }
+
+    
     /* console.log(dilemmaList[0]); */
 
     renderDilemmaList();
@@ -261,26 +265,31 @@ function removingDilemmasFromPackage(event, packageId){
     renderPackageContent(packageId);
 }
 
-function deletePackage(packageId){
-
-    event.preventDefault();
+function deletePackage(packageId){    
 
     api("api/post/delete/"+ packageId +"/cardpackage", "post");
     
-    reloadPackages();
-
+    loadPackages();
+    renderPackageList();
 }
 
-async function reloadPackages(){
+function loadCommentsFromDilemma(dilemmaId){   
 
-    const response = loadPackages();
+    var commentsList = [];
 
-    await response.then( response => {
+    api("api/get/findallfordilemma/"+ dilemmaId +"/commentsdilemma", "get").then( response =>{
 
-        let test = response;
+        const comments = response;
+        commentsList = [];
+
+        for(let i = 0; i < comments.length; i++){
+
+        commentsList.push(comments[i]);
+
+        /* console.log(dilemmaComments[i]); */
+        }     
         
-        renderPackages();
-
-    });
-    
+        dilemmaIdCommentsMap.set(dilemmaId, commentsList);
+    })       
 }
+
