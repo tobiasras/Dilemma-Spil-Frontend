@@ -94,10 +94,12 @@
     background-color: aqua;
 }
 #dilemma-form{
-    background-color: blue;
+    margin: 1vw;
+    background-color: rgb(184, 218, 212);
 }
 #hints-form{
-    background-color: red;
+    margin: 1vw;
+    background-color: rgb(184, 218, 212);
 }
 .pure-dilemma-description{
     margin: 0.5vw;

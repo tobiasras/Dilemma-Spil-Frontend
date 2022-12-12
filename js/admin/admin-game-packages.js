@@ -111,7 +111,7 @@ function renderPackageContent(packageId){
         /* delete functionality if there are no dilemmas added */
         if(dilemmas[0] === undefined){
 
-            let deletebutton = '<div id="delete-package-div"><form onsubmit="deletePackage('+ packageId +')"><button class="dilemma-submit-button" type="submit">Slet pakken</button></form></div>';
+            let deletebutton = '<div id="delete-package-div"><form onsubmit="deletePackage(event, '+ packageId +')"><button class="dilemma-submit-button" type="submit">Slet pakken</button></form></div>';
 
             $('#package-info').append(deletebutton);
         }

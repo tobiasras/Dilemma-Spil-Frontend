@@ -111,8 +111,11 @@ async function submitLogin() {
     username: username,
     password: password
   };
+  
   const token = await api("login", "POST", adminUser);
   localStorage.setItem("token", token.jwttoken);
+
+  window.location.href = "http://127.0.0.1:5500/html/admin.html";
 }
 
 function resetMainDiv() {

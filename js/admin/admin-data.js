@@ -63,8 +63,9 @@ function loadPackages(){
 
         /* console.log(packageList.length); */
 
-    })
 
+        
+    })
 }
 
 function loadPackageContent(packageId){
@@ -262,10 +263,24 @@ function removingDilemmasFromPackage(event, packageId){
 
 function deletePackage(packageId){
 
+    event.preventDefault();
+
     api("api/post/delete/"+ packageId +"/cardpackage", "post");
     
-    loadPackages();
+    reloadPackages();
 
-    renderPackages();
+}
 
+async function reloadPackages(){
+
+    const response = loadPackages();
+
+    await response.then( response => {
+
+        let test = response;
+        
+        renderPackages();
+
+    });
+    
 }
