@@ -5,7 +5,10 @@ class Lobby {
 
         let data = formCleaner.cleanFormData(formData);
 
-        api("api/post/create/lobby", "POST", data).then(response => {
+
+
+
+        api("api/post/create/lobby" +  "?cardPackageID=1", "POST", data).then(response => {
             const lobbyCode = response.lobbyCode;
 
             const player = response.gameLobby;
@@ -40,8 +43,9 @@ class Lobby {
 
 
         api("api/get/read/lobbyExist/" + data.lobbyID, "GET").then(response => {
-            console.log(JSON.stringify(response.gameLobby));
+            console.log("LOBBY:  " + JSON.stringify(response.gameLobby));
             const gameLobby = response.gameLobby;
+
 
             if (response.gameLobby != null) {
                 sessionStorage.setItem("player", JSON.stringify(player));

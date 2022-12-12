@@ -1,23 +1,36 @@
 class Game {
 
 
+    saveAnswer(){
+        this.dilemmaCards[this.currentRound].gameAnswersModels[0] = {
+            dilemmaDifficulty: $('#dilemma-importance').val(),
+            discussionQuality: $('#dilemma-value').val()
+        };
+    }
+
+
     startGame(){
         socket.startGame();
     }
 
 
-    setupGame(cardPackage) {
+    setupGame(gameLobby) {
         gameUI.displayGamePage()
 
-        this.currentRound = cardPackage.currentRound;
-        this.dilemmaCards = cardPackage.cardPackage.dilemmaModels;
+        console.log(gameLobby);
+
+        this.gameLobby = gameLobby;
+
+        this.currentRound = gameLobby.currentRound;
+        this.dilemmaCards = gameLobby.cardPackage.dilemmaModels;
+
+
 
         this.currentCard = this.dilemmaCards[this.currentRound];
+        this.gameName = gameLobby.cardPackage.enName;
+        this.totalCards = this.dilemmaCards.length;
 
-        this.gameName = cardPackage.cardPackage.enName;
-        this.totalCards = this.dilemmaCards.size;
-
-        this.nextCard()
+        this.nextCard();
     }
 
     nextRound(newRound){
@@ -27,9 +40,27 @@ class Game {
 
     forwardOneCard(){
         this.currentRound++;
-        socket.nextCard(this.currentRound);
-    }
 
+        if (this.currentRound <= this.totalCards){
+
+            socket.nextCard(this.currentRound);
+        } else {
+            this.gameLobby.cardPackage.dilemmaModels = this.dilemmaCards;
+
+            /*
+                api("api/post/save/lobbyStats","POST", this.gameLobby).then(response => {
+                    console.log(response);
+                });
+             */
+
+            socket.nextCard(this.currentRound);
+        }
+
+        // tells server to load new card for all players in lobby
+
+
+
+    }
     backOneCard(){
         if (this.currentRound !== 0){
             this.currentRound--;
@@ -46,33 +77,14 @@ class Game {
         this.newCard = new RenderCard(dilemmaCard)
         this.newCard.renderCard($('#card-body'));
     }
-
-
     renderForAgainstText(){
-        console.log(this.newCard.dilemmaCard.hintFor)
-        console.log(this.newCard.dilemmaCard.hintAgainst)
-
-
         $('#for-text').text(this.newCard.dilemmaCard.hintFor);
         $('#against-text').text(this.newCard.dilemmaCard.hintAgainst);
     }
 
-
-
-
-
-
     endGame(){
         gameUI.displayEnd();
-
     }
-
-
-
-
-
-
 }
 
 const game = new Game();
-

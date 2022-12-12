@@ -1,12 +1,15 @@
 $( document ).ready(function() {
 
-    alert(123);
-
     gameUI.displayLobbyPage()
+
+
 
     const url = window.location.href;
 
-    let values = getValues(url);
+    let values = getValues(url)
+
+    $('#lobby-id').text(values.lobbyID);
+
 
     // join socket
     if(values.isJoined){
@@ -14,13 +17,9 @@ $( document ).ready(function() {
 
         socket.join(values.lobbyID, player);
 
-        console.log("IS JOIN")
 
     } else {
     // create socket
-
-        console.log(values.lobbyID)
-
 
         socket.join(values.lobbyID)
     }

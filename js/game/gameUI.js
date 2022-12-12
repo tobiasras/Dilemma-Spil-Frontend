@@ -23,10 +23,7 @@ class GameUI {
 
     displayCommentModal() {
         $('#modal-comment').modal('show');
-
-
         $("#modal-comment-field").val('');
-
         $("#dilemma-comment").submit(function (event) {
 
             let formData = $('#dilemma-comment').serializeArray();
@@ -42,11 +39,6 @@ class GameUI {
             event.preventDefault();
             $('#modal-comment').modal('hide');
         });
-    }
-
-
-    hideHintsModal() {
-        $('#modal-hint').modal('hide');
     }
 
 

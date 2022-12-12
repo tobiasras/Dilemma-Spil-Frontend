@@ -3,8 +3,6 @@ class PlayerLobbyDisplay {
     render(playerList){
         $('.player-display').remove();
 
-        console.log(JSON.stringify(playerList))
-
         playerList.forEach((player) =>
         {
 
@@ -15,6 +13,7 @@ class PlayerLobbyDisplay {
             listItem.append(listName);
 
             playerDisplay.append(listItem);
+
 
         });
     }
