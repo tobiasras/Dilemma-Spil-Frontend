@@ -30,7 +30,7 @@ async function loadEnglish(){
     const enResponse = await fetch("../../json/english.json");
     english = await enResponse.json();
 
-    console.log(english);
+    // console.log(english);
 }
 
 function switchLanguage(){
@@ -42,7 +42,7 @@ function switchLanguage(){
         language = "da";
     }
 
-    console.log(language);
+    // console.log(language);
 
     renderLanguage(language);
 }
