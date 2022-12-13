@@ -56,6 +56,7 @@ function renderStatistics() {
         x.style.display = "none";
     }
     
+    renderGeneralStats();
 }
 
 function renderFeedback() {

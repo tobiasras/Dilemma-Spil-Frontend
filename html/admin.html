@@ -18,6 +18,7 @@
   <script src="../js/admin/admin-data.js"></script>
   <script src="../js/admin/admin-general.js"></script>
   <script src="../js/admin/admin-game-packages.js"></script>
+  <script src="../js/admin/admin-statistic.js"></script>
   
 </head>
 <body onload="loadData(); loadPackages(); renderDilemmas();">
@@ -117,13 +118,13 @@ end base content box -->
 
   <div class="content-buttons-div m-0">
     <ul class="m-0">      
-        <button class="content-button" onclick="render()">Generel</button>
+        <button class="content-button" onclick="renderGeneralStats()">Generel</button>
       
-        <button class="content-button" onclick="render()">Dilemmaer</button>
+        <button class="content-button" onclick="renderDilemmaStats()">Dilemmaer</button>
     </ul>
   </div>
 
-  <div class="content-info" id="statistics-info">
+  <div class="content-info" id="stats-info">
     
     Stadig under udvikling! :/
 
