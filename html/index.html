@@ -17,11 +17,12 @@
     defer></script>
     <!-- local -->
     <script src="../js/utility/api.js"></script>
+    <script src="../js/utility/language.js"></script>
   <script src="../js/menu.js" defer></script>
   <script src="../js/lobby.js" defer></script>
 </head>
 
-<body>
+<body onload="loadLanguages()">
 
   <!-- Language bar-->  
   <div class="language-box">
@@ -29,7 +30,7 @@
       <h5>Sprog</h5>
       <img src="../images/denmark_flag.png" class="flag-icon" alt="">
       <label class="switch">
-        <input type="checkbox">
+        <input onclick="switchLanguage()" type="checkbox">
         <span class="slider round"></span>
       </label>
       <img src="../images/uk_flag.png" class="flag-icon" alt="">

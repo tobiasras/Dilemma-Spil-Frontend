@@ -129,8 +129,7 @@ function createNewPackage(){
 
     $('#package-info').css("column-count", 1);   
 
-    $('#package-info').append(createPackageForm);
-    
+    $('#package-info').append(createPackageForm);    
     
     newPackageBody = "";
 }

@@ -238,6 +238,11 @@ function renderComments(dilemmaId){
 
 function renderGeneralFeedback(){
 
+    $('#feedback-info').empty();
+
+    
+    let feedback = '<div>Denne side er under udvikling. Vi beklager.</div>'
 
 
+    $('#feedback-info').append(feedback);
 }
