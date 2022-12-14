@@ -23,6 +23,11 @@
 
 }
 
+body{
+    background-image: url("/images/background.svg");
+    background-size: cover;
+}
+
 #game-info-div .game-desc {
     border-radius: 25px;
     background-color: var(--yellow);
@@ -41,9 +46,6 @@
     background-color: rgb(235, 37, 37);
 }
 
-#game-rules {
-    display: none;
-}
 
 .language-div {
     margin-top: 1px;
@@ -51,6 +53,11 @@
     background-color: var(--yellow);
     padding: 0.25em;
 
+}
+
+
+.d-flex-1 {
+    display: flex;
 }
 
 .flag-icon {
@@ -132,8 +139,21 @@ input:checked+.slider:before {
     column-count: 2;
 }
 
-.menu-box{
-    width: 20%;
+
+.l-corner{
+    border-top-left-radius: 0.25em;
+
+}
+
+.r-corner{
+border-top-right-radius: 0.25em;
+}
+
+.box{
+    border-top-right-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+
 }
 
 /*

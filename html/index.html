@@ -3,15 +3,8 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Document</title>
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../css/mainpage/style.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
     <!-- JavaScript Bundle with Popper -->
@@ -19,15 +12,30 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="../css/mainpage/style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <!-- local -->
     <script src="../js/lobby.js"></script>
     <script src="../js/utility/api.js"></script>
     <script src="../js/utility/formData.js"></script>
+    <script src="../js/menu.js"></script>
 
-    <script src="../js/menu.js" defer></script>
+
+
 </head>
 
 <body class="overflow-hidden">
+
+<script>
+    $( document ).ready(function() {
+        showPage('game-page:link');
+        showMenu('intro-menu:link')
+    });
+</script>
 
 <!-- Language bar
 <div class="language-box">
@@ -52,68 +60,53 @@
             </div>
 
             <hr/>
-            <ul class="d-flex flex-column justify-content-start nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="game-page-link"
-                       onclick="renderGamePage()">
 
+            <ul class="d-flex-1 flex-column justify-content-between nav nav-pills">
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="game-page:link"
+                       onclick="showPage('game-page:link')">
                         <i class="material-icons menu-icon me-2">play_arrow</i>
                         <p class="m-0">Spil</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="feedback-page-link"
-                       onclick="renderFeedbackPage()">
-
-
+                    <a class="nav-link d-flex-1 m-0 justify-content-start text-dark" href="#" id="feedback-page:link"
+                       onclick="showPage('feedback-page:link')">
                         <i class="material-icons menu-icon me-2">reviews</i>
                         <p class="m-0">Feedback</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="lobby-page-link"
-                       onclick="renderLobbyPage()">
-
-                        <i class="material-icons menu-icon me-2">token</i>
-                        <p class="m-0">Lobby</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="admin-page-login"
-                       onclick="renderLoginForm()">
-
+                    <a class="nav-link d-flex-1 m-0 justify-content-start text-dark" href="#" id="admin-page:link"
+                       onclick="showPage('admin-page:link')">
                         <i class="material-icons menu-icon me-2">login</i>
                         <p class="m-0">Admin</p>
                     </a>
                 </li>
-
             </ul>
         </div>
-
     </div>
 
 
     <!-- content -->
     <div class="p-3 col-10">
         <!-- GAME PAGE -->
-        <!--
-        <div class="d-flex justify-content-between align-items-start p-5">
+        <div id="game-page"  class="content-page d-flex-1 justify-content-between align-items-start p-5">
 
             <div class="w-50">
 
                 <div class="d-flex justify-content-start m-0">
-                    <button class="btn border">Intro</button>
-                    <button class="btn border">Spilleregler</button>
-                    <button class="btn border">Sådan starter du</button>
-
+                    <button id="intro-menu:link" onclick="showMenu('intro-menu:link')" class="menu-btn ps-3 pe-3 pt-2 pb-2 border-0 l-corner">Intro</button>
+                    <button id="rules-menu:link" onclick="showMenu('rules-menu:link')" class="menu-btn border-0 ps-3 pe-3">Spilleregler</button>
+                    <button id="how-to-menu:link" onclick="showMenu('how-to-menu:link')" class="menu-btn border-0 r-corner ps-3 pe-3">Sådan starter du</button>
                 </div>
 
 
-                <div class="border p-3 w-100">
-                    <div>
+                <div class="p-3 w-100 bg-yellow box">
+                    <div id="intro-menu" class="menu-box">
                         <h2>Intro</h2>
 
                         <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
@@ -125,7 +118,7 @@
                             quas nostrum ullam.</p>
                     </div>
 
-                    <div>
+                    <div id="rules-menu" class="menu-box">
                         <h2>Spille regler</h2>
 
                         <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
@@ -136,13 +129,61 @@
                             reiciendis
                             quas nostrum ullam.</p>
                     </div>
+
+
+
+
+                    <div id="how-to-menu" class="menu-box">
+                        <h2>Spille regler</h2>
+
+                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                            accusantium
+                            praesentium
+                            fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis, voluptatum,
+                            ratione
+                            reiciendis
+                            quas nostrum ullam.</p>
+                    </div>
+
                 </div>
             </div>
 
 
             <div class="w-33">
 
-                <div class="mt-5 border p-3 w-100">
+
+                <div class="d-flex justify-content-end m-0">
+                    <button data-toggle="modal" data-target="#skjult-knap" onclick="showMenu('intro-menu:link')" class="btn bg-white text-white">Skjult</button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="skjult-knap" tabindex="-1" role="dialog" aria-labelledby="skjult-knap-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="skjult-knap-label">Den skjulte knap</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Lavet af: Lars, Tobias, Ajarco
+                                </p>
+
+                                <p>
+                                    13/12/2022 | datamatiker 3. sem
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class=" border p-3 w-100 bg-white ">
+
+
                     <div>
 
                         <h2>Start et spil</h2>
@@ -243,11 +284,9 @@
                 </div>
             </div>
         </div>
-        -->
 
         <!-- FEEDBACK -->
-        <!--
-        <div class="d-flex justify-content-between align-items-start p-3">
+        <div id="feedback-page" class="content-page d-flex-1 justify-content-between align-items-start p-5">
             <div class="w-50">
                 <div class="p-3 w-100">
                     <div>
@@ -280,10 +319,9 @@
 
 
         </div>
-         -->
 
         <!-- LOGIN ADMIN -->
-        <div class="d-flex justify-content-center p-3">
+        <div id="admin-page" class="content-page d-flex-1 justify-content-center p-3">
             <div class="w-33 border p-3">
 
                 <h2>Login</h2>
@@ -307,12 +345,12 @@
 
         </div>
 
-
-
     </div>
 
 
 </div>
+
+
 </body>
 
 <!-- Intro game page

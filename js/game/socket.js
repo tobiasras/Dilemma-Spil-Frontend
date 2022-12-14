@@ -37,11 +37,9 @@ class Socket {
 
 
                 if (response.gameIsDone){
-
                     gameUI.displayEnd()
 
                 } else {
-                    game.saveAnswer();
                     game.nextRound(response.currentRound);
                 }
             });

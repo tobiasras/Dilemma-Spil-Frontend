@@ -1,5 +1,8 @@
 $( document ).ready(function() {
 
+
+
+    showPage("lobby-page:link");
     gameUI.displayLobbyPage()
 
 
