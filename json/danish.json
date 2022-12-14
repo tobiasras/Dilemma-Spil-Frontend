@@ -19,7 +19,13 @@
     "creategamelabel":"Opret spil",
     "modalback":"Tilbage",
     "joingamelabel":"Join spil",
-    "modaljoin":"Join spil"
+    "modaljoin":"Join spil",
+    "deadgamelink":"Spillet",
+    "deadendlink":"Slut",
+    "backlink":"Tilbage",
+    "explainlobby":"Din spil lobby. Koden til spillet som de andre spillere skal bruge, for at joine står ovenover.",
+    "joinedplayers":"Spillere i lobby",
+    "joinedplayersexplained":"Disse spillere er allerede i lobbyen. Når i er klar trykker en af jer start spillet."
 
     
     

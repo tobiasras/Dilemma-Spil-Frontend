@@ -78,6 +78,12 @@ function renderLanguage(language){
         $('#modaltwoback').text(danish.modalback);
         $('#join-game-label').text(danish.joingamelabel);
         $('#modaljoin').text(danish.modaljoin);
+        $('#deadgamelink').text(danish.deadgamelink);
+        $('#deadendlink').text(danish.deadendlink);
+        $('#backlink').text(danish.backlink);
+        $('#explainlobby').text(danish.explainlobby);
+        $('#joinedplayers').text(danish.joinedplayers);
+        $('#joinedplayersexplained').text(danish.joinedplayersexplained);
     }
 
     // English
@@ -107,6 +113,12 @@ function renderLanguage(language){
         $('#modaltwoback').text(english.modalback);
         $('#join-game-label').text(english.joingamelabel);
         $('#modaljoin').text(english.modaljoin);
+        $('#deadgamelink').text(english.deadgamelink);
+        $('#deadendlink').text(english.deadendlink);
+        $('#backlink').text(english.backlink);
+        $('#explainlobby').text(english.explainlobby);
+        $('#joinedplayers').text(english.joinedplayers);
+        $('#joinedplayersexplained').text(english.joinedplayersexplained);
     }
 
 }

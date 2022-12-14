@@ -19,5 +19,11 @@
     "creategamelabel":"Create game",
     "modalback":"Back",
     "joingamelabel":"Join game",
-    "modaljoin":"Join game"
+    "modaljoin":"Join game",
+    "deadgamelink":"Game",
+    "deadendlink":"End",
+    "backlink":"Go back",
+    "explainlobby":"Your game lobby. The code needed to join this lobby is written above.",
+    "joinedplayers":"Players in the lobby",
+    "joinedplayersexplained":"These players have joined the lobby. When you are ready to play, one of you click on start game."
 }
