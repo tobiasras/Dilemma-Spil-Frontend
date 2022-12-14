@@ -88,10 +88,16 @@
     margin-top: 1vw;    
     background-color: rgb(217, 213, 230);
 }
+.dilemma-name-buttons:hover{
+    background-color: beige;
+}
 .package-name-buttons{
     margin-left: 1vw;
     margin-top: 1vw;    
-    background-color: aqua;
+    background-color: rgb(217, 213, 230);
+}
+.package-name-buttons:hover{
+    background-color: beige;
 }
 #dilemma-form{
     margin: 1vw;
@@ -155,4 +161,17 @@
 }
 #dilemma-stats-block{
     margin: 1vw;
+}
+.chart-block{
+    columns: 2;
+    width: 90%;    
+}
+
+.dilemmaChart{
+    max-width: 540px;
+    margin-left: 1vw;
+    
+}
+#importance-chart{
+    
 }

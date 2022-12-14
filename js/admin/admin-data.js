@@ -2,10 +2,11 @@ var dilemmaList = [];
 var hintsList = [];
 var packageList = [];
 var packageDilemmaList = [];
-var dilemmaComments = [];
+var dilemmaComments = []; // may not be used
 const packageDilemmaDaNameMap = new Map();
 const dilemmaIdHintsListMap = new Map();
 const dilemmaIdCommentsMap = new Map();
+const dilemmaIdStatsMap = new Map();
 var hintBody;
 var dilemmaBody;
 var newPackageBody;
@@ -32,6 +33,7 @@ api("api/get/findall/dilemma", "get").then(response=> {
     
         loadHints(dilemmaId);
         loadCommentsFromDilemma(dilemmaId);
+        loadStatsFromDilemma(dilemmaId);
     }
 
     
@@ -301,4 +303,23 @@ function deleteCommentFromDilemma(commentId){
 
     loadData();
     
+}
+
+function loadStatsFromDilemma(dilemmaId){   
+
+    var statsList = [];
+
+    api("api/get/findall/"+ dilemmaId +"/gameanswers", "get").then( response =>{
+
+        const stats = response;
+        statsList = [];
+
+        for(let i = 0; i < stats.length; i++){
+
+        statsList.push(stats[i]);
+        
+        }     
+        
+        dilemmaIdStatsMap.set(dilemmaId, statsList);
+    })       
 }
