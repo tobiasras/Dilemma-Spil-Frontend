@@ -84,6 +84,18 @@ function renderLanguage(language){
         $('#explainlobby').text(danish.explainlobby);
         $('#joinedplayers').text(danish.joinedplayers);
         $('#joinedplayersexplained').text(danish.joinedplayersexplained);
+        $('#leave-game-modal-label').text(danish.leavegamemodallabel);
+        $('#leavegameexplained').text(danish.leavegameexplained);
+        $('#lobbybackbutton').text(danish.modalback);
+        $('#gamestartbutton').text(danish.gamestartbutton);
+        $('#feelheader').text(danish.feelheader);
+        $('#thinkheader').text(danish.thinkheader);
+        $('#actheader').text(danish.actheader);
+        $('#importance-question').text(danish.importancequestion);
+        $('#discussion-question').text(danish.discussionquestion);
+        $('#game-dilemma-comment').text(danish.gamedilemmacomment);
+        $('#go-back-game-button').text(danish.gobackgamebutton);
+        $('#go-forward-game-button').text(danish.goforwardgamebutton);
     }
 
     // English
@@ -119,6 +131,18 @@ function renderLanguage(language){
         $('#explainlobby').text(english.explainlobby);
         $('#joinedplayers').text(english.joinedplayers);
         $('#joinedplayersexplained').text(english.joinedplayersexplained);
+        $('#leave-game-modal-label').text(english.leavegamemodallabel);
+        $('#leavegameexplained').text(english.leavegameexplained);
+        $('#lobbybackbutton').text(english.modalback);
+        $('#gamestartbutton').text(english.gamestartbutton);
+        $('#feelheader').text(english.feelheader);
+        $('#thinkheader').text(english.thinkheader);
+        $('#actheader').text(english.actheader);
+        $('#importance-question').text(english.importancequestion);
+        $('#discussion-question').text(english.discussionquestion);
+        $('#game-dilemma-comment').text(english.gamedilemmacomment);
+        $('#go-back-game-button').text(english.gobackgamebutton);
+        $('#go-forward-game-button').text(english.goforwardgamebutton);
     }
 
 }

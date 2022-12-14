@@ -110,7 +110,7 @@
                     <h5 class="modal-title" id="leave-game-modal-label">Tilbage til hovedmenu</h5>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" id="leavegameexplained">
 
 
                     Går du tilbage til hovede menuen vil spillet blivet afsluttet
@@ -118,7 +118,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                    <a href="index.html" type="button"  class="btn btn-outline-success">tilbage</a>
+                    <a href="index.html" type="button"  class="btn btn-outline-success"><div id="lobbybackbutton">Tilbage</div></a>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
                 </ul>
 
 
-                <button onclick="game.startGame()" class="btn btn-dark mt-3">Start game</button>
+                <button onclick="game.startGame()" class="btn btn-dark mt-3"><div id="gamestartbutton">Start game</div></button>
             </div>
         </div>
     </div>
@@ -199,9 +199,9 @@
                     <div id="card-body" class="col-8">
                     </div>
                     <div class="col-4 mt-5">
-                        <h5>Hvad føler du?</h5>
-                        <h5 class="mt-4">Hvad tænker du?</h5>
-                        <h5 class="mt-4">Hvordan handler du?</h5>
+                        <h5 id="feelheader">Hvad føler du?</h5>
+                        <h5 class="mt-4" id="thinkheader">Hvad tænker du?</h5>
+                        <h5 class="mt-4" id="actheader">Hvordan handler du?</h5>
                     </div>
                 </div>
 
@@ -210,7 +210,7 @@
                     <form onsubmit="" class="w-50">
                         <hr>
 
-                        <label for="dilemma-value" class="form-label">Hvor vigtig er dilemmaet?:</label>
+                        <label for="dilemma-value" class="form-label"><div id="importance-question">Hvor vigtig er dilemmaet?:</div></label>
 
                         <div class="d-flex justify-content-around">
                             <input type="range" class="form-range" min="1" max="10" value="5" id="dilemma-value">
@@ -218,7 +218,7 @@
                         </div>
 
 
-                        <label for="dilemma-importance" class="form-label">Havde vi en god diskution?:</label>
+                        <label for="dilemma-importance" class="form-label"><div id="discussion-question">Havde vi en god diskution?:</div></label>
                         <div class="d-flex justify-content-around">
                             <input type="range" class="form-range" value="5" min="1" max="10" id="dilemma-importance">
                             <p id="field-dilemma-importance" class="ms-3 mb-3">5</p>
@@ -226,7 +226,7 @@
                     </form>
 
                     <div class="text-end align-self-end mb-2">
-                        <button class="btn btn-light" type="button" onclick="gameUI.displayCommentModal()">Kommentar
+                        <button class="btn btn-light" type="button" onclick="gameUI.displayCommentModal()"><div id="game-dilemma-comment">Kommentar</div>
                         </button>
                         <button class="btn btn-light" type="button" onclick="gameUI.displayHintsModal()">Hints</button>
 
@@ -309,11 +309,11 @@
 
             <div class="d-flex justify-content-between mt-3">
                 <div>
-                    <button onclick="game.backOneCard()" class="btn btn-dark">Tilbage</button>
+                    <button onclick="game.backOneCard()" class="btn btn-dark"><div id="go-back-game-button">Tilbage</div></button>
                 </div>
 
                 <div>
-                    <button onclick="game.forwardOneCard()" class="btn btn-dark">Næste kort</button>
+                    <button onclick="game.forwardOneCard()" class="btn btn-dark"><div id="go-forward-game-button">Næste kort</div></button>
                 </div>
             </div>
 

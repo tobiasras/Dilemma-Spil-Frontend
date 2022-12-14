@@ -25,5 +25,16 @@
     "backlink":"Go back",
     "explainlobby":"Your game lobby. The code needed to join this lobby is written above.",
     "joinedplayers":"Players in the lobby",
-    "joinedplayersexplained":"These players have joined the lobby. When you are ready to play, one of you click on start game."
+    "joinedplayersexplained":"These players have joined the lobby. When you are ready to play, one of you can click on start game.",
+    "leavegamemodallabel":"Go back to the main menu",
+    "leavegameexplained":"You are about to leave the game.",
+    "gamestartbutton":"Start game",
+    "feelheader":"How do you feel?",
+    "thinkheader":"What are your thoughts?",
+    "actheader":"How would you act?",
+    "importancequestion":"How important do you think this dilemma is?:",
+    "discussionquestion":"How was your discussion of this dilemma?:",
+    "gamedilemmacomment":"Comment",
+    "gobackgamebutton":"Previous card",
+    "goforwardgamebutton":"Next card"
 }

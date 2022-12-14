@@ -25,7 +25,18 @@
     "backlink":"Tilbage",
     "explainlobby":"Din spil lobby. Koden til spillet som de andre spillere skal bruge, for at joine står ovenover.",
     "joinedplayers":"Spillere i lobby",
-    "joinedplayersexplained":"Disse spillere er allerede i lobbyen. Når i er klar trykker en af jer start spillet."
+    "joinedplayersexplained":"Disse spillere er allerede i lobbyen. Når i er klar trykker en af jer start spillet.",
+    "leavegamemodallabel":"Tilbage til hovedmenuen",
+    "leavegameexplained":"Du er ved at forlade spillet.",
+    "gamestartbutton":"Start spillet",
+    "feelheader":"Hvad føler du?",
+    "thinkheader":"Hvad tænker du?",
+    "actheader":"Hvordan handler du?",
+    "importancequestion":"Hvor vigtigt synes du dilemmaet er?:",
+    "discussionquestion":"Hvordan var vores diskussion af dilemmaet?:",
+    "gamedilemmacomment":"Kommentar",
+    "gobackgamebutton":"Sidste kort",
+    "goforwardgamebutton":"Næste kort"
 
     
     
