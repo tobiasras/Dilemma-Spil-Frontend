@@ -14,9 +14,9 @@ class RenderCard {
         }
     */
 
-    constructor(dilemmaJSON, isDanish) {
+    constructor(dilemmaJSON, isDanish, answer) {
         this.dilemmaCard = this.filterCardLanguage(isDanish, dilemmaJSON);
-        this.answers = dilemmaJSON.gameAnswersModels;
+        this.answer = answer
     }
 
     // filters card for import information
@@ -68,9 +68,9 @@ class RenderCard {
         appendTo.append(body);
 
 
-        if (this.answers.length !== 0) {
-            cardAnswer.changeImportanceDisplay(this.answers[0].dilemmaDifficulty);
-            cardAnswer.changeValueDisplay(this.answers[0].discussionQuality);
+        if (this.answer !== undefined) {
+            cardAnswer.changeImportanceDisplay(this.answer.dilemmaDifficulty);
+            cardAnswer.changeValueDisplay(this.answer.discussionQuality);
         } else {
             cardAnswer.changeImportanceDisplay(5);
             cardAnswer.changeValueDisplay(5)
