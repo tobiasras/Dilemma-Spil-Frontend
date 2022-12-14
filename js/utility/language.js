@@ -96,6 +96,12 @@ function renderLanguage(language){
         $('#game-dilemma-comment').text(danish.gamedilemmacomment);
         $('#go-back-game-button').text(danish.gobackgamebutton);
         $('#go-forward-game-button').text(danish.goforwardgamebutton);
+        $('#modal-title-comment').text(danish.modaltitlecomment);
+        $('#comment-field').text(danish.commentfield);
+        $('#modal-title-hint').text(danish.modaltitlehint);
+        $('#header-for').text(danish.headerfor);
+        $('#header-against').text(danish.headeragainst);
+        $('#hint-close-button').text(danish.hintclosebutton);
     }
 
     // English
@@ -143,6 +149,12 @@ function renderLanguage(language){
         $('#game-dilemma-comment').text(english.gamedilemmacomment);
         $('#go-back-game-button').text(english.gobackgamebutton);
         $('#go-forward-game-button').text(english.goforwardgamebutton);
+        $('#modal-title-comment').text(english.modaltitlecomment);
+        $('#comment-field').text(english.commentfield);
+        $('#modal-title-hint').text(english.modaltitlehint);
+        $('#header-for').text(english.headerfor);
+        $('#header-against').text(english.headeragainst);
+        $('#hint-close-button').text(english.hintclosebutton);
     }
 
 }

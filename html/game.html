@@ -244,14 +244,14 @@
                                         <div class="row text-start">
 
                                             <div class="col-6">
-                                                <h5>For:</h5>
+                                                <h5 id="header-for">For:</h5>
                                                 <p id="for-text">
 
                                                 </p>
                                             </div>
 
                                             <div class="col-6">
-                                                <h5>Against:</h5>
+                                                <h5 id="header-against">Against:</h5>
                                                 <p id="against-text">
 
                                                 </p>
@@ -261,9 +261,8 @@
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-
-                                        <button type="button" class="btn btn-dark">Close js</button>
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal"><div id="hint-close-button">Close</div></button>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +282,7 @@
                                     <form id="dilemma-comment">
                                         <div class="modal-body text-start p-5">
                                             <div class="form-group">
-                                                <label for="modal-comment-field">Kommentar til dilemmaet</label>
+                                                <label for="modal-comment-field"><div id="comment-field">Kommentar til dilemmaet</div></label>
                                                 <textarea name="comments" class="form-control" id="modal-comment-field"
                                                           rows="5"></textarea>
                                             </div>

@@ -36,7 +36,13 @@
     "discussionquestion":"Hvordan var vores diskussion af dilemmaet?:",
     "gamedilemmacomment":"Kommentar",
     "gobackgamebutton":"Sidste kort",
-    "goforwardgamebutton":"Næste kort"
+    "goforwardgamebutton":"Næste kort",
+    "modaltitlecomment":"Skriv en kommentar til dilemmaet",
+    "commentfield":"Kommentar til dilemmaet:",
+    "modaltitlehint":"Hints og inspiration for og imod",
+    "headerfor":"For:",
+    "headeragainst":"Imod:",
+    "hintclosebutton":"Luk"
 
     
     

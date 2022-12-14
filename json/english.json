@@ -36,5 +36,11 @@
     "discussionquestion":"How was your discussion of this dilemma?:",
     "gamedilemmacomment":"Comment",
     "gobackgamebutton":"Previous card",
-    "goforwardgamebutton":"Next card"
+    "goforwardgamebutton":"Next card",
+    "modaltitlecomment":"Write a comment about the dilemma",
+    "commentfield":"Comment about the dilemma:",
+    "modaltitlehint":"Hints and inspiration for and against",
+    "headerfor":"For:",
+    "headeragainst":"Against:",
+    "hintclosebutton":"Close"
 }
