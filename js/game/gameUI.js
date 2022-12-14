@@ -1,24 +1,17 @@
 class GameUI {
 
     displayGamePage() {
-        $('#end-page').hide();
-        $('#lobby-page').hide();
-        $('#game-page').show();
-
+        showPage('game-page:link')
     }
 
     displayLobbyPage() {
-        $('#end-page').hide();
-        $('#game-page').hide();
-        $('#lobby-page').show();
+        showPage('lobby-page:link')
+
     }
 
-
     displayEnd() {
-        $('#game-page').hide();
-        $('#lobby-page').hide();
-        $('#end-page').show();
-
+        alert(1)
+        showPage('end-page:link')
     }
 
     displayCommentModal() {
@@ -52,3 +45,27 @@ class GameUI {
 }
 
 const gameUI = new GameUI();
+
+
+
+function showPage(linkID) {
+    document.getElementById(linkID).classList.remove("disabled");
+
+    resetPages();
+    disableAllActiveClass();
+
+    document.getElementById(linkID).classList.add("active");
+    document.getElementById(linkID).classList.add("text-dark");
+
+
+    let pageID = linkID.split(":");
+    $('#' + pageID[0]).show();
+}
+
+function disableAllActiveClass() {
+    $('.nav-link').removeClass("active");
+}
+function resetPages() {
+    $('.content-page').hide();
+}
+

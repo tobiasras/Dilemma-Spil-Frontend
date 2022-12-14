@@ -21,7 +21,7 @@ class Game {
 
         this.gameLobby = gameLobby;
 
-        this.currentRound = gameLobby.currentRound;
+        this.currentRound = 0;
         this.dilemmaCards = gameLobby.cardPackage.dilemmaModels;
 
 
@@ -34,16 +34,23 @@ class Game {
     }
 
     nextRound(newRound){
+
+        // save method goes here
+        game.saveAnswer();
+
+
         this.currentRound = newRound;
+
+        console.log("round: " + newRound)
+
         this.nextCard();
     }
 
     forwardOneCard(){
-        this.currentRound++;
 
-        if (this.currentRound <= this.totalCards){
-
-            socket.nextCard(this.currentRound);
+        if (this.currentRound < this.totalCards){
+            let newRound = this.currentRound + 1;
+            socket.nextCard(newRound);
         } else {
             this.gameLobby.cardPackage.dilemmaModels = this.dilemmaCards;
 
@@ -52,8 +59,6 @@ class Game {
                     console.log(response);
                 });
              */
-
-
 
             socket.nextCard(this.currentRound);
         }
@@ -64,9 +69,15 @@ class Game {
 
     }
     backOneCard(){
+
         if (this.currentRound !== 0){
-            this.currentRound--;
-            socket.nextCard(this.currentRound);
+
+
+            let newRound = this.currentRound - 1;
+            socket.nextCard(newRound);
+
+
+            socket.nextCard(newRound);
         }
 
     }
@@ -74,6 +85,8 @@ class Game {
     // render card
     nextCard(){
         let dilemmaCard = this.dilemmaCards[this.currentRound];
+
+        console.log(dilemmaCard);
 
         // render object
         this.newCard = new RenderCard(dilemmaCard)
@@ -83,6 +96,8 @@ class Game {
         $('#for-text').text(this.newCard.dilemmaCard.hintFor);
         $('#against-text').text(this.newCard.dilemmaCard.hintAgainst);
     }
+
+
 
     endGame(){
         gameUI.displayEnd();

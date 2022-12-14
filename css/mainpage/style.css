@@ -1,5 +1,5 @@
 :root {
-    --yellow: #eeb71f;
+    --yellow: #F0D757;
 }
 
 .w-33 {
@@ -10,6 +10,8 @@
     background-color: var(--yellow);
 }
 
+
+
 #game-info-div {
     width: auto;
     height: 30vw;
@@ -19,6 +21,11 @@
     width: 60vw;
     height: 30vw;
 
+}
+
+body{
+    background-image: url("/images/background.svg");
+    background-size: cover;
 }
 
 #game-info-div .game-desc {
@@ -39,9 +46,6 @@
     background-color: rgb(235, 37, 37);
 }
 
-#game-rules {
-    display: none;
-}
 
 .language-div {
     margin-top: 1px;
@@ -49,6 +53,11 @@
     background-color: var(--yellow);
     padding: 0.25em;
 
+}
+
+
+.d-flex-1 {
+    display: flex;
 }
 
 .flag-icon {
@@ -130,9 +139,24 @@ input:checked+.slider:before {
     column-count: 2;
 }
 
-.menu-box{
-    width: 20%;
+
+.l-corner{
+    border-top-left-radius: 0.25em;
+
 }
+
+.r-corner{
+border-top-right-radius: 0.25em;
+}
+
+.box{
+    border-top-right-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+
+}
+
+/*
 
 .main-box-container{
     margin-top: 6%;
@@ -140,7 +164,7 @@ input:checked+.slider:before {
     width: 80%;
     column-count: 2;
 }
-
+*/
 
 /* Bootstrap slider colors  */
 input[type=range]::-webkit-slider-thumb {
@@ -151,5 +175,9 @@ input[type=range]::-moz-range-thumb {
 }
 input[type=range]::-ms-thumb {
     background: black;
+}
+
+.active{
+    background: white !important;
 }
 /* Bootstrap slider colors  */
