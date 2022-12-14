@@ -1,4 +1,27 @@
 {
-    "gameintrobtn":"Dansk intro"
+    "navgame":"Spil",
+    "rulesmenulink":"Spilleregler",
+    "howtostart":"Sådan starter du",
+    "introtext":"indsæt intro tekst her",
+    "rulesheader":"Spilleregler",
+    "rulestext":"indsæt regler her",
+    "howtoheader":"Sådan starter du",
+    "howtotext":"indsæt forklaring her",
+    "startheader":"Start et spil",
+    "starttext":"Opret et spil eller join et allerede eksisterende spil med den tilknyttede spil-kode",
+    "creategamebutton":"Opret spil",
+    "joingamebutton":"Join spil",
+    "feedbackheader":"Feedback til spillet",
+    "feedbacktext":"Har du ris, ros eller forslag til spillet, vil vi meget gerne høre om det. Alt feedback er anonymt",
+    "fieldofstudy":"Studieretning",
+    "playername":"Spiller navn",
+    "modalcreategamebutton":"Opret spil",
+    "creategamelabel":"Opret spil",
+    "modalback":"Tilbage",
+    "joingamelabel":"Join spil",
+    "modaljoin":"Join spil"
 
+    
+    
+    
 }

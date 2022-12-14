@@ -23,7 +23,7 @@
     <script src="../js/utility/api.js"></script>
     <script src="../js/utility/formData.js"></script>
     <script src="../js/utility/language.js"></script>
-  <script src="../js/menu.js" defer></script>
+    <script src="../js/menu.js" defer></script>
 </head>
 
 <body class="overflow-hidden" onload="loadLanguages()" >
@@ -35,19 +35,19 @@
     });
 </script>
 
-<!-- Language bar
+
 <div class="language-box">
     <div class="float-end language-div text-center">
-        <h5>Sprog</h5>
+        <h5></h5>
         <img src="../images/denmark_flag.png" class="flag-icon" alt="">
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" onclick="switchLanguage()">
             <span class="slider round"></span>
         </label>
         <img src="../images/uk_flag.png" class="flag-icon" alt="">
     </div>
 </div>
--->
+
 <div class="row vh-100">
 
     <!-- Menu -->
@@ -65,7 +65,7 @@
                     <a class="nav-link d-flex m-0 justify-content-start text-dark" href="#" id="game-page:link"
                        onclick="showPage('game-page:link')">
                         <i class="material-icons menu-icon me-2">play_arrow</i>
-                        <p class="m-0">Spil</p>
+                        <p class="m-0" id="navgame">Spil</p>
                     </a>
                 </li>
 
@@ -98,8 +98,10 @@
 
                 <div class="d-flex justify-content-start m-0">
                     <button id="intro-menu:link" onclick="showMenu('intro-menu:link')" class="menu-btn ps-3 pe-3 pt-2 pb-2 border-0 l-corner">Intro</button>
-                    <button id="rules-menu:link" onclick="showMenu('rules-menu:link')" class="menu-btn border-0 ps-3 pe-3">Spilleregler</button>
-                    <button id="how-to-menu:link" onclick="showMenu('how-to-menu:link')" class="menu-btn border-0 r-corner ps-3 pe-3">Sådan starter du</button>
+                    <button id="rules-menu:link" onclick="showMenu('rules-menu:link')" class="menu-btn border-0 ps-3 pe-3"><div id="buttonrules">Spilleregler</div></button>
+                    <!-- this button is meant for further explanation of how to start the game
+                    <button id="how-to-menu:link" onclick="showMenu('how-to-menu:link')" class="menu-btn border-0 r-corner ps-3 pe-3"><div id="howtoplaybutton">Sådan starter du</div></button>
+                    -->
                 </div>
 
 
@@ -107,7 +109,7 @@
                     <div id="intro-menu" class="menu-box">
                         <h2>Intro</h2>
 
-                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                        <p class="me-4" id="intro-text">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
                             accusantium
                             praesentium
                             fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis, voluptatum,
@@ -117,9 +119,9 @@
                     </div>
 
                     <div id="rules-menu" class="menu-box">
-                        <h2>Spille regler</h2>
+                        <h2 id="rules-header">Spilleregler</h2>
 
-                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                        <p class="me-4" id="rules-text">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
                             accusantium
                             praesentium
                             fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis, voluptatum,
@@ -130,11 +132,11 @@
 
 
 
-
+                    <!-- in case more explanation for how to run the game is required
                     <div id="how-to-menu" class="menu-box">
-                        <h2>Spille regler</h2>
+                        <h2 id="howtoheader">Sådan starter du</h2>
 
-                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                        <p class="me-4" id="howtotext">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
                             accusantium
                             praesentium
                             fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis, voluptatum,
@@ -142,6 +144,7 @@
                             reiciendis
                             quas nostrum ullam.</p>
                     </div>
+                    -->
 
                 </div>
             </div>
@@ -163,7 +166,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    Lavet af: Lars, Tobias, Ajarco
+                                    Lavet af: Lars, Tobias og Ajarco :)
                                 </p>
 
                                 <p>
@@ -184,9 +187,9 @@
 
                     <div>
 
-                        <h2>Start et spil</h2>
+                        <h2 id="startheader">Start et spil</h2>
 
-                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                        <p class="me-4" id="starttext">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
                             accusantium
                             praesentium fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis,
                             voluptatum,
@@ -194,10 +197,10 @@
 
                         <div>
                             <button type="button" data-toggle="modal" data-target="#create-game"
-                                    class="btn border bg-yellow">Opret spil
+                                    class="btn border bg-yellow"><div id="creategamebutton">Opret spil</div>
                             </button>
-                            <button type="button" data-toggle="modal" data-target="#join-game" class="btn border">Join
-                                Spil
+                            <button type="button" data-toggle="modal" data-target="#join-game" class="btn border"><div id="joingamebutton">Join
+                                Spil</div>
                             </button>
                         </div>
                     </div>
@@ -218,21 +221,21 @@
 
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="field-of-study">field of study</label>
+                                    <label for="field-of-study"><div id="fieldofstudy">Studieretning</div></label>
                                     <input type="text" name="fieldOfStudy" class="form-control" id="field-of-study"
-                                           aria-describedby="emailHelp" placeholder="Enter name" required>
+                                           aria-describedby="emailHelp" placeholder="Enter field of study" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="player-name">Player Name</label>
+                                    <label for="player-name"><div id="playername">Player Name</div></label>
                                     <input type="text" name="name" class="form-control" id="player-name"
                                            aria-describedby="emailHelp" placeholder="Enter name" required>
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-dark" data-dismiss="modal">Tilbage</button>
-                                <button type="submit" class="btn btn-outline-success">Opret spil</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal"><div id="modalback">Tilbage</div></button>
+                                <button type="submit" class="btn btn-outline-success"><div id="modalcreategamebutton">Opret spil</div></button>
                             </div>
                         </form>
 
@@ -254,27 +257,27 @@
 
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="lobbyID">lobby id</label>
+                                    <label for="lobbyID"><div id="lobbyidinput">Lobby id</div></label>
                                     <input name="lobbyID" type="text" class="form-control" id="lobbyID"
-                                           aria-describedby="emailHelp" placeholder="Enter name" required>
+                                           aria-describedby="emailHelp" placeholder="Lobby id" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="field-of-study">field of study</label>
+                                    <label for="field-of-study"><div id="studyfieldinput">field of study</div></label>
                                     <input type="text" name="fieldOfStudy" class="form-control"
-                                           aria-describedby="emailHelp" placeholder="Enter name" required>
+                                           aria-describedby="emailHelp" placeholder="Enter field of study" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="player-name">Player Name</label>
+                                    <label for="player-name"><div id="lobbyplayername">Player Name</div></label>
                                     <input type="text" name="name" class="form-control"
                                            aria-describedby="emailHelp" placeholder="Enter name" required>
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-dark" data-dismiss="modal">Tilbage</button>
-                                <button type="submit" class="btn btn-outline-success">Join spil</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal"><div id="modaltwoback">Tilbage</div></button>
+                                <button type="submit" class="btn btn-outline-success"><div id="modaljoin">Join spil</div></button>
                             </div>
                         </form>
 
@@ -288,9 +291,9 @@
             <div class="w-50">
                 <div class="p-3 w-100">
                     <div>
-                        <h2>Feedback til spillet</h2>
+                        <h2 id="feedbackheader">Feedback til spillet</h2>
 
-                        <p class="me-4">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
+                        <p class="me-4" id="feedbacktext">intro ipsum dolor sit amet consectetur adipisicing elit. Deserunt quia ut illo
                             accusantium
                             praesentium
                             fugit labore cum. Recusandae at fugit, delectus necessitatibus aut officiis, voluptatum,

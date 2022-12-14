@@ -1,9 +1,23 @@
 {
-    "gameintrobtn":"Introduction"
-   
-
-
-
-
-
+    "navgame":"Game",
+    "rulesmenulink":"Game rules",
+    "howtostart":"This is how you start",
+    "introtext":"insert intro text here",
+    "rulesheader":"Game rules",
+    "rulestext":"insert game rules text here",
+    "howtoheader":"This is how you start",  
+    "howtotext":"insert text explanation here", 
+    "startheader":"Start a game",
+    "starttext":"Create a game or join an already existing one with the corresponding game-code.",
+    "creategamebutton":"Create game",
+    "joingamebutton":"Join game",
+    "feedbackheader":"Feedback about the game",
+    "feedbacktext":"Do you have ideas, criticism or any other thoughts about the game, then we would love to hear about them. All feedback is anonymous.",
+    "fieldofstudy":"Field of study",
+    "playername":"Player name",
+    "modalcreategamebutton":"Create game",
+    "creategamelabel":"Create game",
+    "modalback":"Back",
+    "joingamelabel":"Join game",
+    "modaljoin":"Join game"
 }
