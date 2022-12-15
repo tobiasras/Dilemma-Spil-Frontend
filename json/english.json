@@ -42,5 +42,6 @@
     "modaltitlehint":"Hints and inspiration for and against",
     "headerfor":"For:",
     "headeragainst":"Against:",
-    "hintclosebutton":"Close"
+    "hintclosebutton":"Close",
+    "packagechoice":"Choose dilemma package"
 }

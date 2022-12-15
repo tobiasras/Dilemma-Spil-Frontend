@@ -103,6 +103,7 @@ function renderLanguage(language){
         $('#header-for').text(danish.headerfor);
         $('#header-against').text(danish.headeragainst);
         $('#hint-close-button').text(danish.hintclosebutton);
+        $('#packageChoice').text(danish.packagechoice);
     }
 
     // English
@@ -156,6 +157,7 @@ function renderLanguage(language){
         $('#header-for').text(english.headerfor);
         $('#header-against').text(english.headeragainst);
         $('#hint-close-button').text(english.hintclosebutton);
+        $('#packageChoice').text(english.packagechoice);
     }
 
 }
