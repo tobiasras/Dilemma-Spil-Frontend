@@ -79,7 +79,28 @@ function showStatsForDilemma(dilemmaId){
     $('#dilemma-stats-block').append(averageStats);
 
 
+    discussionOne = countDiscussionDataPoints(1, dilemmaId);
+    discussionTwo = countDiscussionDataPoints(2, dilemmaId);
+    discussionThree = countDiscussionDataPoints(3, dilemmaId);
+    discussionFour = countDiscussionDataPoints(4, dilemmaId);
+    discussionFive = countDiscussionDataPoints(5, dilemmaId);
+    discussionSix = countDiscussionDataPoints(6, dilemmaId);
+    discussionSeven = countDiscussionDataPoints(7, dilemmaId);
+    discussionEight = countDiscussionDataPoints(8, dilemmaId);
+    discussionNine = countDiscussionDataPoints(9, dilemmaId);
+    discussionTen = countDiscussionDataPoints(10, dilemmaId);
 
+    importanceOne = countImportanceDataPoints(1, dilemmaId);
+    importanceTwo = countImportanceDataPoints(2, dilemmaId);
+    importanceThree = countImportanceDataPoints(3, dilemmaId);
+    importanceFour = countImportanceDataPoints(4, dilemmaId);
+    importanceFive = countImportanceDataPoints(5, dilemmaId);
+    importanceSix = countImportanceDataPoints(6, dilemmaId);
+    importanceSeven = countImportanceDataPoints(7, dilemmaId);
+    importanceEight = countImportanceDataPoints(8, dilemmaId);
+    importanceNine = countImportanceDataPoints(9, dilemmaId);
+    importanceTen = countImportanceDataPoints(10, dilemmaId);
+    
     if(answers.length !== 0){
         
     let chartBlock = '<div class="chart-block" id="chart-block"></div>';
@@ -99,7 +120,7 @@ function showStatsForDilemma(dilemmaId){
           labels: ["1", "2", "3", "4", "5","6", "7", "8", "9", "10"],
           datasets: [{
             backgroundColor: "green",
-            data: [4, 7, 7, 3, 6, 1, 14, 16, 22, 9]
+            data: [discussionOne, discussionTwo, discussionThree, discussionFour, discussionFive, discussionSix, discussionSeven, discussionEight, discussionNine, discussionTen]
           }]
         },
         options: {
@@ -117,7 +138,7 @@ function showStatsForDilemma(dilemmaId){
           labels: ["1", "2", "3", "4", "5","6", "7", "8", "9", "10"],
           datasets: [{
             backgroundColor: "purple",
-            data: [4, 7, 7, 3, 6, 1, 14, 16, 22, 9]
+            data: [importanceOne, importanceTwo, importanceThree, importanceFour, importanceFive, importanceSix, importanceSeven, importanceEight, importanceNine, importanceTen]
           }]
         },
         options: {
@@ -130,4 +151,34 @@ function showStatsForDilemma(dilemmaId){
       });
 
     }
+}
+
+function countDiscussionDataPoints(label, dilemmaId){
+
+  let count = 0;
+  const answers = dilemmaIdStatsMap.get(dilemmaId);
+  
+  for(let i = 0; i < answers.length; i++){
+
+    if(label === answers[i].discussionQuality){
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function countImportanceDataPoints(label, dilemmaId){
+
+  let count = 0;
+  const answers = dilemmaIdStatsMap.get(dilemmaId);
+  
+  for(let i = 0; i < answers.length; i++){
+
+    if(label === answers[i].dilemmaDifficulty){
+      count++;
+    }
+  }
+
+  return count;
 }

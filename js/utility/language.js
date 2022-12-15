@@ -12,9 +12,7 @@ async function loadLanguages(){
         renderLanguage(language);
         
         }
-    })
-    
-    
+    })  
 }
 
 async function loadDanish(){
