@@ -46,6 +46,7 @@ function switchLanguage(){
     console.log(language);
 
     renderLanguage(language);
+    loadPackageList();
 }
 
 function renderLanguage(language){

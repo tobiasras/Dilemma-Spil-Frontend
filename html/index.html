@@ -26,7 +26,7 @@
     <script src="../js/menu.js" defer></script>
 </head>
 
-<body class="overflow-hidden" onload="loadLanguages()" >
+<body class="overflow-hidden" onload="loadLanguages(); loadPackageList()" >
 
 <script>
     $( document ).ready(function() {
@@ -207,7 +207,7 @@
                 </div>
             </div>
 
-
+            <!-- create new lobby -->
             <div class="modal fade" id="create-game" tabindex="-1" role="dialog" aria-labelledby="create-game-label"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -215,7 +215,6 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="create-game-label">Opret spil</h5>
                         </div>
-
 
                         <form id="create-lobby" onsubmit="lobby.createLobby(event)">
 
@@ -235,8 +234,7 @@
                                 <div class="form-group">
                                     <label for="package-choice"><div id="packageChoice">Pakkevalg</div></label>
                                     <select class="m-3" id="package-choice" name="package-choice" required>
-                                        <option value="original">original</option>
-                                        <option value="two">two</option>
+                                        
                                     </select>
                                 </div>
 

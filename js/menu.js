@@ -1,7 +1,4 @@
 
-
-
-
 function showPage(linkID) {
         resetPages();
         disableAllActiveClass();
@@ -32,8 +29,6 @@ function resetPages() {
     $('.content-page').hide();
 }
 
-
-
 function showMenu(buttonID){
     $('.menu-box').hide();
     $('.menu-btn').removeClass('bg-yellow');
@@ -44,5 +39,30 @@ function showMenu(buttonID){
     $('#' + menuID[0]).show();
 }
 
+function loadPackageList(){
+
+    api("api/get/findall/cardpackage", "get").then (response =>{
+
+        $('#package-choice').empty();
+
+        const packages = response;
+        var pName = "";
+
+        for(let i = 0; i < packages.length; i++){
+
+            if(language === "da"){
+                pName = packages[i].daName;
+            }
+            else{
+                pName = packages[i].enName;
+            }
+
+            let packageOption = '<option value="'+ packages[i].id +'">'+ pName +'</option>'; 
+
+            $('#package-choice').append(packageOption);
+
+        }
+    })
+}
 
 
