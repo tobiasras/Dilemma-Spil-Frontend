@@ -57,6 +57,8 @@ function loadPackageList(){
                 pName = packages[i].enName;
             }
 
+            console.log(packages[i].id);
+
             let packageOption = '<option value="'+ packages[i].id +'">'+ pName +'</option>'; 
 
             $('#package-choice').append(packageOption);

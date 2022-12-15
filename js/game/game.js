@@ -24,8 +24,6 @@ class Game {
         this.currentRound = 0;
         this.dilemmaCards = gameLobby.cardPackage.dilemmaModels;
 
-
-
         this.currentCard = this.dilemmaCards[this.currentRound];
         this.gameName = gameLobby.cardPackage.enName;
         this.totalCards = this.dilemmaCards.length;

@@ -78,7 +78,6 @@ function showStatsForDilemma(dilemmaId){
     
     $('#dilemma-stats-block').append(averageStats);
 
-
     discussionOne = countDiscussionDataPoints(1, dilemmaId);
     discussionTwo = countDiscussionDataPoints(2, dilemmaId);
     discussionThree = countDiscussionDataPoints(3, dilemmaId);

@@ -4,9 +4,9 @@ class Lobby {
         let formData = $('#create-lobby').serializeArray();
 
         let data = formCleaner.cleanFormData(formData);
-       
-
-        api("api/post/create/lobby" +  "?cardPackageID=1", "POST", data).then(response => {
+        
+        // make cardpackage id dynamic +  "?cardPackageID="  
+        api("api/post/create/lobby/"+ data.packagechoice + "", "POST", data).then(response => {
             const lobbyCode = response.lobbyCode;
 
             const player = response.gameLobby;
