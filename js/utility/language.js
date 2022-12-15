@@ -1,4 +1,5 @@
 var language = "da";
+var isLanguageDa = true;
 var danish;
 var english;
 
@@ -35,9 +36,11 @@ function switchLanguage(){
 
     if(language === "da"){
         language = "en";
+        isLanguageDa = false;
     }
     else{
         language = "da";
+        isLanguageDa = true;
     }
 
     console.log(language);

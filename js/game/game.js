@@ -87,9 +87,12 @@ class Game {
         let dilemmaCard = this.dilemmaCards[this.currentRound];
 
         console.log(dilemmaCard);
+        console.log(isLanguageDa);
 
         // render object
-        this.newCard = new RenderCard(dilemmaCard)
+        this.newCard = new RenderCard(dilemmaCard, isLanguageDa);
+      
+
         this.newCard.renderCard($('#card-body'));
     }
     renderForAgainstText(){

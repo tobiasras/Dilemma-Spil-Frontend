@@ -1,3 +1,12 @@
+var missingHints = {
+    "id":1,
+    "daForHint":"Der er ikke hints til dette dilemma.",
+    "daAgainstHint":":/",
+    "enForHint":"There are no hints for this dilemma.",
+    "enAgainstHint":":/"
+}
+
+
 class RenderCard {
 
     /* JSON MODEL FOR CARD
@@ -15,20 +24,29 @@ class RenderCard {
     */
 
     constructor(dilemmaJSON, isDanish) {
+        
         this.dilemmaCard = this.filterCardLanguage(isDanish, dilemmaJSON);
         this.answers = dilemmaJSON.gameAnswersModels;
+       
     }
 
     // filters card for import information
     filterCardLanguage(isDanish, uncleanDilemma) {
         let newJSON;
+        
+        if(uncleanDilemma.hintsDilemmaModels.length === 0){
+            uncleanDilemma.hintsDilemmaModels.push(missingHints);
+            
+            // console.log(uncleanDilemma.hintsDilemmaModels[0]);
+        }
+
 
         if (isDanish) {
             newJSON = {
                 name: uncleanDilemma.daName,
                 description: uncleanDilemma.daDescription,
                 hintFor: uncleanDilemma.hintsDilemmaModels[0].daForHint,
-                hintAgainst: uncleanDilemma.hintsDilemmaModels[0].daAgainstHint,
+                hintAgainst: uncleanDilemma.hintsDilemmaModels[0].daAgainstHint
             }
         } else {
             newJSON = {
@@ -39,6 +57,8 @@ class RenderCard {
             }
 
         }
+
+        console.log(newJSON);
 
         return newJSON;
     }
@@ -76,14 +96,25 @@ class RenderCard {
             cardAnswer.changeValueDisplay(5)
         }
 
-
-
-
     }
 
     renderForText() {
+        if(this.dilemmaCard.hintFor != undefined){
         $('for-text').text(this.dilemmaCard.hintFor);
+        }
+        else{
+            if(isLanguageDa){
+            $('for-text').text("Der er ingen hints.");
+            }
+            else{
+                $('for-text').text("There are no hints.");
+            } 
+        }
+        
+
+        if(this.dilemmaCard.hintFor != undefined){
         $('against-text').text(this.dilemmaCard.hintAgainst);
+        }
     }
 
 
