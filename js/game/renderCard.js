@@ -6,7 +6,6 @@ var missingHints = {
     "enAgainstHint":":/"
 }
 
-
 class RenderCard {
 
     /* JSON MODEL FOR CARD
@@ -24,11 +23,9 @@ class RenderCard {
     */
 
     constructor(dilemmaJSON, isDanish) {
-        
-        this.dilemmaCard = this.filterCardLanguage(isDanish, dilemmaJSON);
+                this.dilemmaCard = this.filterCardLanguage(isDanish, dilemmaJSON);
         this.answers = dilemmaJSON.gameAnswersModels;
-       
-    }
+           }
 
     // filters card for import information
     filterCardLanguage(isDanish, uncleanDilemma) {

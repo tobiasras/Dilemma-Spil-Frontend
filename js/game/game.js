@@ -1,28 +1,41 @@
 class Game {
 
 
-    saveAnswer(){
-        this.dilemmaCards[this.currentRound].gameAnswersModels[0] = {
+
+
+    saveAnswer() {
+
+        let answerModel = {
             dilemmaDifficulty: $('#dilemma-importance').val(),
-            discussionQuality: $('#dilemma-value').val()
-        };
+            discussionQuality: $('#dilemma-value').val(),
+            dilemmaModelGA: this.dilemmaCards[this.currentRound]
+        }
+
+        this.answers[this.currentRound] = (answerModel);
     }
 
 
-    startGame(){
+    startGame() {
         socket.startGame();
     }
 
 
     setupGame(gameLobby) {
+
+        this.answers = [];
+
         gameUI.displayGamePage()
 
         console.log(gameLobby);
 
         this.gameLobby = gameLobby;
 
+
+
         this.currentRound = 0;
         this.dilemmaCards = gameLobby.cardPackage.dilemmaModels;
+
+
 
         this.currentCard = this.dilemmaCards[this.currentRound];
         this.gameName = gameLobby.cardPackage.enName;
@@ -31,44 +44,46 @@ class Game {
         this.nextCard();
     }
 
-    nextRound(newRound){
-
-        // save method goes here
+    nextRound(newRound) {
         game.saveAnswer();
-
-
         this.currentRound = newRound;
-
-        console.log("round: " + newRound)
 
         this.nextCard();
     }
 
-    forwardOneCard(){
+    forwardOneCard() {
 
-        if (this.currentRound < this.totalCards){
+        console.log("currentRound: " + this.currentRound + "    total cards: " + this.totalCards)
+
+        if (this.currentRound < this.totalCards -1) {
             let newRound = this.currentRound + 1;
             socket.nextCard(newRound);
         } else {
-            this.gameLobby.cardPackage.dilemmaModels = this.dilemmaCards;
 
-            /*
-                api("api/post/save/lobbyStats","POST", this.gameLobby).then(response => {
-                    console.log(response);
-                });
-             */
+            let newRound = this.currentRound + 1;
+            game.saveAnswer();
 
-            socket.nextCard(this.currentRound);
+
+            api("api/post/save/answers", "POST", this.answers).then(response => {
+                console.log(response);
+            });
+
+
+
+            console.log(this.answers)
+
+
+            socket.nextCard(newRound);
         }
 
         // tells server to load new card for all players in lobby
 
 
-
     }
-    backOneCard(){
 
-        if (this.currentRound !== 0){
+    backOneCard() {
+
+        if (this.currentRound !== 0) {
 
 
             let newRound = this.currentRound - 1;
@@ -81,7 +96,7 @@ class Game {
     }
 
     // render card
-    nextCard(){
+    nextCard() {
         let dilemmaCard = this.dilemmaCards[this.currentRound];
 
         console.log(dilemmaCard);
@@ -93,14 +108,14 @@ class Game {
 
         this.newCard.renderCard($('#card-body'));
     }
-    renderForAgainstText(){
+
+    renderForAgainstText() {
         $('#for-text').text(this.newCard.dilemmaCard.hintFor);
         $('#against-text').text(this.newCard.dilemmaCard.hintAgainst);
     }
 
 
-
-    endGame(){
+    endGame() {
         gameUI.displayEnd();
     }
 }

@@ -1,0 +1,72 @@
+{
+  "gameLobby": {
+    "timeCreated": "2022-12-14T12:23:05.663+00:00",
+    "lobbyCode": "vphui",
+    "playerList": [
+      {
+        "name": "Tobias Rasmussen",
+        "listOfRoundResponses": [],
+        "groupFieldOfStudy": null,
+        "ready": false
+      }
+    ],
+    "cardPackage": {
+      "id": 1,
+      "daName": "Dilemmaspillet",
+      "enName": "Dilemmagame",
+      "dilemmaModels": [
+        {
+          "id": 1,
+          "daName": "Mad idag?",
+          "enName": "Food Today?",
+          "daDescription": "Pizza eller Burger",
+          "enDescription": "Pizza or Burger",
+          "hintsDilemmaModels": [
+            {
+              "id": 3,
+              "daForHint": "Det er godt",
+              "enForHint": "its good",
+              "daAgainstHint": "Det er ikke godt",
+              "enAgainstHint": "its not good"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "daName": "bad idag?",
+          "enName": "Bath Today?",
+          "daDescription": "Skal jeg i bad idag",
+          "enDescription": "Should i take a bath today",
+          "hintsDilemmaModels": [
+            {
+              "id": 2,
+              "daForHint": "Det er godt",
+              "enForHint": "its good",
+              "daAgainstHint": "Det er ikke godt",
+              "enAgainstHint": "its not good"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "daName": "Computer",
+          "enName": "Mac or Windows",
+          "daDescription": "Mac eller Windows",
+          "enDescription": "Computer",
+          "hintsDilemmaModels": [
+            {
+              "id": 1,
+              "daForHint": "Det er godt",
+              "enForHint": "its good",
+              "daAgainstHint": "Det er ikke godt",
+              "enAgainstHint": "its not good"
+            }
+          ]
+        }
+      ]
+    },
+    "currentRound": -1,
+    "totalRounds": 3
+  },
+  "message": "Created lobby: vphui"
+}
