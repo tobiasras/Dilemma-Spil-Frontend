@@ -20,8 +20,8 @@ class Lobby {
             // IF GAME NO WORD CHECK THAT URL MATCHES
 
             //
-            window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + lobbyCode;
-            // window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
+            window.location.href = 'https://gentle-meadow-0fb93b303.2.azurestaticapps.net/html/game' + "?" + lobbyCode;
+            // window.location.href = 'https://dilemmaspil.azurewebsites.net/Frontend%20Dillemmaspillet/html/game.html' + "?" + lobbyCode;
 
 
         });
@@ -49,7 +49,7 @@ class Lobby {
                 sessionStorage.setItem("player", JSON.stringify(player));
 
                 // IF GAME NO WORD CHECK THAT URL MATCHES
-                window.location.href = 'http://127.0.0.1:5500/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
+                window.location.href = 'https://gentle-meadow-0fb93b303.2.azurestaticapps.net/html/game' + "?" + gameLobby.lobbyCode + "&join-game";
 
                 // window.location.href = 'http://localhost:63343/Frontend%20Dillemmaspillet/html/game.html' + "?" + gameLobby.lobbyCode + "&join-game";
 
