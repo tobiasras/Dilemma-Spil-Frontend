@@ -1,5 +1,5 @@
 async function api(end_url, method, payload) {
-    const response = await fetch("https://dilemmaspil.azurewebsites.net/" + end_url, {
+    const response = await fetch("http://13.74.216.34/" + end_url, {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
